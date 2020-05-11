@@ -27,7 +27,12 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
   func searchCharacterNames(request: SearchCharacters.Model.Request) {
     repository = RemoteRepository()
     
-    let response = SearchCharacters.Model.Response()
-    presenter?.presentSomething(response: response)
+    let nameQuery = request.characterName
+    repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results: Character?, error: Error?) in
+        
+    })
+    
+   // let response = SearchCharacters.Model.Response(characters: <#[Character]#>)
+   // presenter?.presentSomething(response: response)
   }
 }

@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainNavControler(rootViewController: SearchCharactersViewController())
+        AppDelegate.setupNavBarBehaviour()
+        window?.rootViewController = UINavigationController(rootViewController:SearchCharactersViewController())
         window?.makeKeyAndVisible()
         return true
     }
@@ -28,6 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
 
+    }
+    
+    static func setupNavBarBehaviour() {
+        UINavigationBar.appearance().barTintColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().tintColor = .red
+        UINavigationBar.appearance().shadowImage = UIImage()
+        let navbarAttrs: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.red,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)
+        ]
+        UINavigationBar.appearance().titleTextAttributes = navbarAttrs
     }
 
 

@@ -30,7 +30,7 @@ extension MarvelBattleEndPoints {
         case .retrieveData:
                 return "https://gateway.marvel.com"
         case.retrieveCharactersViaName:
-            return "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith="
+            return "https://gateway.marvel.com:443/v1/public/characters?&ts=1&apikey=41d357792b574304008264ad6fff6126&hash=de452e1787bb3f5aaf59370d641e8554"
         }
     }
     

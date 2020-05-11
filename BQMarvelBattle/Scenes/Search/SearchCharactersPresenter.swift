@@ -23,9 +23,8 @@ class SearchCharactersPresenter: SearchCharactersPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: SearchCharacters.Model.Response)
-  {
-    let viewModel = SearchCharacters.Model.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentSomething(response: SearchCharacters.Model.Response) {
+    let viewModel = SearchCharacters.Model.ViewModel(characters: response.characters)
+    viewController?.displayData(viewModel: viewModel)
   }
 }

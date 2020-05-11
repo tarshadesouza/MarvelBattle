@@ -9,37 +9,48 @@
 import Foundation
 import UIKit
 
-class MainNavControler: UINavigationController, UINavigationControllerDelegate {
+//Navigation Bar
+ public extension UIViewController {
+    func configureNavigationBar(title: String? = nil, leftButton: UIBarButtonItem? = nil, rightButton: [UIBarButtonItem]? = nil) {
+        setNavigationBar()
+        setTitle(title)
+        setLeftButton(leftButton)
+        setRightButton(rightButton)
+    }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        delegate = self
-        navigationController?.delegate = self
-        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().isTranslucent = false
-        
-        let gradient = CAGradientLayer()
-        let bounds = navigationBar.bounds
-        gradient.frame = bounds
-        gradient.colors = [UIColor.lightGray.cgColor, UIColor.darkGray.cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 0)
-        
-        if let image = getImageFrom(gradientLayer: gradient) {
-            navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+    func setTitle(_ title: String?) {
+        guard let title = title else {
+            return
+        }
+        let titleLabel = UILabel()
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        titleLabel.font = .systemFont(ofSize: 18)
+        titleLabel.textColor = .red
+        titleLabel.text = title
+        navigationItem.titleView = titleLabel
+    }
+    
+    func setLeftButton(_ leftButton: UIBarButtonItem?) {
+        if let leftButton = leftButton {
+            leftButton.customView?.sizeToFit()
+            navigationItem.leftBarButtonItem = leftButton
+        }
+    }
+
+    func setRightButton(_ rightButtons: [UIBarButtonItem]?) {
+        if let rightButton = rightButtons {
+            navigationItem.rightBarButtonItems = rightButton
+        } else {
+            navigationItem.rightBarButtonItems = nil
         }
     }
     
-    func getImageFrom(gradientLayer: CAGradientLayer) -> UIImage? {
-        var gradientImage: UIImage?
-        UIGraphicsBeginImageContext(gradientLayer.frame.size)
-        if let context = UIGraphicsGetCurrentContext() {
-            gradientLayer.render(in: context)
-            gradientImage = UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch)
-        }
-        UIGraphicsEndImageContext()
-        return gradientImage
+    func setNavigationBar() {
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        // Remove line
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.layoutIfNeeded()
     }
-    
 }

@@ -20,9 +20,11 @@ enum SearchCharacters {
         }
         
         struct Response {
+            var characters: [Character]?
         }
         
         struct ViewModel {
+            var characters: [Character]?
         }
     }
 }
