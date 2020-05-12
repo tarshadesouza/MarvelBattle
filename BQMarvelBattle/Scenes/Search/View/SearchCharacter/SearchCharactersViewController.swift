@@ -22,7 +22,6 @@ protocol SearchCharactersDisplayLogic: class {
 
 class SearchCharactersViewController: UIViewController, SearchCharactersDisplayLogic {
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.tintColor = .appPrimaryDark
@@ -39,11 +38,16 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
     }
     
+    @IBOutlet weak var tableView: UITableView!
+
     var tableDatasource: SearchCharacterDatasource?
     var tableDelegate: SearchCharacterTableDelegate?
     var interactor: SearchCharactersBusinessLogic?
     var router: (NSObjectProtocol & SearchCharactersRoutingLogic & SearchCharactersDataPassing)?
     var characters: [Character]?
+    var isBattle = false
+    var battleArray = [Character]()
+    var numberOfFighters = 0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -93,9 +97,9 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         let rankingButton = UIBarButtonItem(image: UIImage(named: "ic_trophy"),
                                             style: .done,
                                             target: self,
-                                            action: #selector(SearchCharactersViewController.goToBattleArena))
+                                            action: #selector(SearchCharactersViewController.goToRankings))
         
-        let battleArenaButton = UIBarButtonItem(image: UIImage(named: "ic_trophy"),
+        let battleArenaButton = UIBarButtonItem(image: UIImage(named: "ic_arena"),
                                                 style: .done,
                                                 target: self,
                                                 action: #selector(SearchCharactersViewController.goToBattleArena))
@@ -105,17 +109,11 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         self.setTitle("Character Search")
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
+    @objc func goToBattleArena() {
+        self.router?.goToBattleArena()
     }
     
-    @objc func goToBattleArena() {
+    @objc func goToRankings() {
         //        self.router?.popViewController(self)
     }
     
@@ -125,6 +123,13 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
         setupTableView(with: characters)
         tableView.reloadData()
+    }
+    
+    func isReadyToBattle() -> Bool {
+        if numberOfFighters == 2 {
+            return true
+        }
+        return false
     }
 }
 
@@ -141,13 +146,26 @@ extension SearchCharactersViewController: SearchCharactersDelegate {
     
     func didSelectCharacter(at index: IndexPath) {
         searchBar.resignFirstResponder()
+
         guard let character = characters?[index.row] else {
-        // TODO: Error handling
+            // TODO: Error handling
             return
         }
         
-        self.router?.showCharacterDetail(with: character)
+        if isBattle {
+            if isReadyToBattle() {
+                numberOfFighters = 0
+                self.router?.goToFightBattle(with: battleArray)
+            } else {
+                battleArray.append(character)
+                numberOfFighters += 1
+            }
+        } else {
+            self.router?.showCharacterDetail(with: character)
+        }
     }
+    
+
 }
 
 extension SearchCharactersViewController: UISearchBarDelegate {

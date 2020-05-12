@@ -14,6 +14,8 @@ import UIKit
 
 protocol SearchCharactersRoutingLogic {
     func showCharacterDetail(with character: Character)
+    func goToBattleArena()
+    func goToFightBattle(with fighters: [Character])
 }
 
 protocol SearchCharactersDataPassing {
@@ -29,5 +31,18 @@ class SearchCharactersRouter: NSObject, SearchCharactersRoutingLogic, SearchChar
         let characterDetailVC = CharacterDetailViewController()
         characterDetailVC.character = character
         SearchViewController.show(characterDetailVC, sender: self)
+    }
+    
+    func goToBattleArena() {
+        guard let SearchViewController = viewController else { return }
+        let battleArenaVC = BattleArenaViewController()
+        SearchViewController.show(battleArenaVC, sender: self)
+    }
+    
+    func goToFightBattle(with fighters: [Character]) {
+        guard let SearchViewController = viewController else { return }
+            let battleArenaVC = BattleArenaViewController()
+            battleArenaVC.fighters = fighters
+            SearchViewController.show(battleArenaVC, sender: self)
     }
 }

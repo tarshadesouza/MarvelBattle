@@ -61,5 +61,8 @@ class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate.didSelectCharacter(at: indexPath)
+        if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
+            cell.contentView.backgroundColor = .appAccent
+        }
     }
 }

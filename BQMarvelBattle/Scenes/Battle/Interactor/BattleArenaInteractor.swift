@@ -12,28 +12,18 @@
 
 import UIKit
 
-protocol BattleArenaBusinessLogic
-{
+protocol BattleArenaBusinessLogic {
   func doSomething(request: BattleArena.Something.Request)
 }
 
-protocol BattleArenaDataStore
-{
-  //var name: String { get set }
+protocol BattleArenaDataStore {
+//  var name: String { get set }
 }
 
-class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore
-{
+class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
   var presenter: BattleArenaPresentationLogic?
-  var worker: BattleArenaWorker?
-  //var name: String = ""
   
-  // MARK: Do something
-  
-  func doSomething(request: BattleArena.Something.Request)
-  {
-    worker = BattleArenaWorker()
-    worker?.doSomeWork()
+  func doSomething(request: BattleArena.Something.Request) {
     
     let response = BattleArena.Something.Response()
     presenter?.presentSomething(response: response)

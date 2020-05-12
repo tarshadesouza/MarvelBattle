@@ -16,6 +16,7 @@ import UIKit
         setTitle(title)
         setLeftButton(leftButton)
         setRightButton(rightButton)
+        
     }
     
     func setTitle(_ title: String?) {
@@ -24,8 +25,8 @@ import UIKit
         }
         let titleLabel = UILabel()
         titleLabel.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-        titleLabel.font = .systemFont(ofSize: 18)
-        titleLabel.textColor = .red
+        titleLabel.font = .appHeader
+        titleLabel.textColor = .appAccent
         titleLabel.text = title
         navigationItem.titleView = titleLabel
     }

@@ -20,13 +20,11 @@
 		C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */; };
 		C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */; };
 		C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */; };
-		C1AA8D7B2466B4EE00E9B7FC /* BattleArenaWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D752466B4EE00E9B7FC /* BattleArenaWorker.swift */; };
 		C1AA8D7C2466B4EE00E9B7FC /* BattleArenaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */; };
 		C1AA8D7D2466B4EE00E9B7FC /* BattleArenaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */; };
 		C1AA8D7E2466B4EE00E9B7FC /* BattleArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D782466B4EE00E9B7FC /* BattleArenaViewController.swift */; };
 		C1AA8D7F2466B4EE00E9B7FC /* BattleArenaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D792466B4EE00E9B7FC /* BattleArenaInteractor.swift */; };
 		C1AA8D872466B5F400E9B7FC /* SearchCharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D812466B5F400E9B7FC /* SearchCharactersPresenter.swift */; };
-		C1AA8D882466B5F400E9B7FC /* SearchCharactersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D822466B5F400E9B7FC /* SearchCharactersWorker.swift */; };
 		C1AA8D892466B5F400E9B7FC /* SearchCharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D832466B5F400E9B7FC /* SearchCharactersRouter.swift */; };
 		C1AA8D8A2466B5F400E9B7FC /* SearchCharactersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D842466B5F400E9B7FC /* SearchCharactersModels.swift */; };
 		C1AA8D8B2466B5F400E9B7FC /* SearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */; };
@@ -52,6 +50,9 @@
 		C1E946A7246ADC200076261E /* UIColorStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */; };
 		C1E9483C246AF2FC0076261E /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9483A246AF2FC0076261E /* CharacterDetailViewController.swift */; };
 		C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */; };
+		C1E94848246B038B0076261E /* BattleArenaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E94847246B038B0076261E /* BattleArenaViewController.xib */; };
+		C1E9484D246B07F40076261E /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9484C246B07F40076261E /* DashedLine.swift */; };
+		C1E9484F246B0DBA0076261E /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9484E246B0DBA0076261E /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,13 +72,11 @@
 		C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDatasource.swift; sourceTree = "<group>"; };
 		C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDatasource.swift; sourceTree = "<group>"; };
 		C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaPresenter.swift; sourceTree = "<group>"; };
-		C1AA8D752466B4EE00E9B7FC /* BattleArenaWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaWorker.swift; sourceTree = "<group>"; };
 		C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaRouter.swift; sourceTree = "<group>"; };
 		C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaModels.swift; sourceTree = "<group>"; };
 		C1AA8D782466B4EE00E9B7FC /* BattleArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaViewController.swift; sourceTree = "<group>"; };
 		C1AA8D792466B4EE00E9B7FC /* BattleArenaInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaInteractor.swift; sourceTree = "<group>"; };
 		C1AA8D812466B5F400E9B7FC /* SearchCharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersPresenter.swift; sourceTree = "<group>"; };
-		C1AA8D822466B5F400E9B7FC /* SearchCharactersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersWorker.swift; sourceTree = "<group>"; };
 		C1AA8D832466B5F400E9B7FC /* SearchCharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersRouter.swift; sourceTree = "<group>"; };
 		C1AA8D842466B5F400E9B7FC /* SearchCharactersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersModels.swift; sourceTree = "<group>"; };
 		C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +102,9 @@
 		C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorStyleExtension.swift; sourceTree = "<group>"; };
 		C1E9483A246AF2FC0076261E /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailViewController.xib; sourceTree = "<group>"; };
+		C1E94847246B038B0076261E /* BattleArenaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleArenaViewController.xib; sourceTree = "<group>"; };
+		C1E9484C246B07F40076261E /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
+		C1E9484E246B0DBA0076261E /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		CA1B5928B0D3846BF298C089 /* Pods-BQMarvelBattle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.debug.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,11 +131,10 @@
 		C10D278D24680C460016BDC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1E9483E246B02050076261E /* SearchCharacter */,
 				C1E94839246AF2E60076261E /* CharacterDetail */,
 				C17F5A5D2469B68A00049729 /* DataSources */,
 				C10D278E24680C5E0016BDC2 /* Cells */,
-				C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */,
-				C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +151,7 @@
 		C10D2795246811810016BDC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C1AA8D842466B5F400E9B7FC /* SearchCharactersModels.swift */,
 				C10D2796246811910016BDC2 /* Character.swift */,
 			);
 			path = Models;
@@ -163,6 +165,7 @@
 				C1E94456246A841C0076261E /* TableViewExtension.swift */,
 				C1E94458246A843A0076261E /* NibExtension.swift */,
 				C1E946A2246AD8480076261E /* UIImageView+Kingfisher.swift */,
+				C1E9484E246B0DBA0076261E /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -238,12 +241,11 @@
 		C1AA8D732466B4C800E9B7FC /* Battle */ = {
 			isa = PBXGroup;
 			children = (
-				C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */,
-				C1AA8D752466B4EE00E9B7FC /* BattleArenaWorker.swift */,
-				C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */,
-				C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */,
-				C1AA8D782466B4EE00E9B7FC /* BattleArenaViewController.swift */,
-				C1AA8D792466B4EE00E9B7FC /* BattleArenaInteractor.swift */,
+				C1E94846246B02AC0076261E /* Models */,
+				C1E94845246B02A70076261E /* Interactor */,
+				C1E94844246B02A20076261E /* Router */,
+				C1E94843246B029D0076261E /* Presenter */,
+				C1E94842246B02980076261E /* View */,
 			);
 			path = Battle;
 			sourceTree = "<group>";
@@ -252,12 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				C10D2795246811810016BDC2 /* Models */,
+				C1E94841246B02360076261E /* Interactor */,
+				C1E94840246B022B0076261E /* Router */,
+				C1E9483F246B021E0076261E /* Presenter */,
 				C10D278D24680C460016BDC2 /* View */,
-				C1AA8D812466B5F400E9B7FC /* SearchCharactersPresenter.swift */,
-				C1AA8D822466B5F400E9B7FC /* SearchCharactersWorker.swift */,
-				C1AA8D832466B5F400E9B7FC /* SearchCharactersRouter.swift */,
-				C1AA8D842466B5F400E9B7FC /* SearchCharactersModels.swift */,
-				C1AA8D862466B5F400E9B7FC /* SearchCharactersInteractor.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -317,6 +317,7 @@
 		C1E945ED246A8E9D0076261E /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				C1E9484B246B07E00076261E /* DashedLine */,
 				C1E946A4246ADA790076261E /* UIFontStyleExtension.swift */,
 				C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */,
 			);
@@ -330,6 +331,88 @@
 				C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */,
 			);
 			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		C1E9483E246B02050076261E /* SearchCharacter */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */,
+				C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */,
+			);
+			path = SearchCharacter;
+			sourceTree = "<group>";
+		};
+		C1E9483F246B021E0076261E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D812466B5F400E9B7FC /* SearchCharactersPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C1E94840246B022B0076261E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D832466B5F400E9B7FC /* SearchCharactersRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C1E94841246B02360076261E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D862466B5F400E9B7FC /* SearchCharactersInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C1E94842246B02980076261E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D782466B4EE00E9B7FC /* BattleArenaViewController.swift */,
+				C1E94847246B038B0076261E /* BattleArenaViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1E94843246B029D0076261E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C1E94844246B02A20076261E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C1E94845246B02A70076261E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D792466B4EE00E9B7FC /* BattleArenaInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C1E94846246B02AC0076261E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1E9484B246B07E00076261E /* DashedLine */ = {
+			isa = PBXGroup;
+			children = (
+				C1E9484C246B07F40076261E /* DashedLine.swift */,
+			);
+			path = DashedLine;
 			sourceTree = "<group>";
 		};
 		DF2F6F5BF94B7365DD7A3C4A /* Pods */ = {
@@ -405,6 +488,7 @@
 				C179CFD82465DCBC00B6AE62 /* LaunchScreen.storyboard in Resources */,
 				C179CFD52465DCBC00B6AE62 /* Assets.xcassets in Resources */,
 				C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */,
+				C1E94848246B038B0076261E /* BattleArenaViewController.xib in Resources */,
 				C1E94455246A7E450076261E /* CharacterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,9 +553,11 @@
 				C1AA8D7D2466B4EE00E9B7FC /* BattleArenaModels.swift in Sources */,
 				C1AA8D962466B64000E9B7FC /* RankingsRouter.swift in Sources */,
 				C1E94459246A843A0076261E /* NibExtension.swift in Sources */,
+				C1E9484F246B0DBA0076261E /* UIImageViewExtension.swift in Sources */,
 				C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */,
 				C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */,
 				C1AA8D892466B5F400E9B7FC /* SearchCharactersRouter.swift in Sources */,
+				C1E9484D246B07F40076261E /* DashedLine.swift in Sources */,
 				C1AA8D9F2466C42600E9B7FC /* RemoteRepository.swift in Sources */,
 				C1E94457246A841C0076261E /* TableViewExtension.swift in Sources */,
 				C1AA8D982466B64000E9B7FC /* RankingsViewController.swift in Sources */,
@@ -482,10 +568,8 @@
 				C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */,
 				C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */,
 				C1AA8D952466B64000E9B7FC /* RankingsWorker.swift in Sources */,
-				C1AA8D7B2466B4EE00E9B7FC /* BattleArenaWorker.swift in Sources */,
 				C1E945EC246A8B900076261E /* ResusableView.swift in Sources */,
 				C1AA8D972466B64000E9B7FC /* RankingsModels.swift in Sources */,
-				C1AA8D882466B5F400E9B7FC /* SearchCharactersWorker.swift in Sources */,
 				C1AA8D7F2466B4EE00E9B7FC /* BattleArenaInteractor.swift in Sources */,
 				C1E946A3246AD8480076261E /* UIImageView+Kingfisher.swift in Sources */,
 				C1AA8DA12466C43000E9B7FC /* LocalRepository.swift in Sources */,
