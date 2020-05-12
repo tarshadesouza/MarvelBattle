@@ -13,26 +13,33 @@
 import UIKit
 
 protocol SearchCharactersBusinessLogic {
-  func searchCharacterNames(request: SearchCharacters.Model.Request)
+    func searchCharacterNames(request: SearchCharacters.Model.Request)
 }
 
 protocol SearchCharactersDataStore {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharactersDataStore {
-  var presenter: SearchCharactersPresentationLogic?
-  var repository: Repository?
+    var presenter: SearchCharactersPresentationLogic?
+    var repository: Repository?
     
-  func searchCharacterNames(request: SearchCharacters.Model.Request) {
-    repository = RemoteRepository()
-    
-    let nameQuery = request.characterName
-    repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results: Character?, error: Error?) in
+    func searchCharacterNames(request: SearchCharacters.Model.Request) {
+        repository = RemoteRepository()
         
-    })
-    
-   // let response = SearchCharacters.Model.Response(characters: <#[Character]#>)
-   // presenter?.presentSomething(response: response)
-  }
+        let nameQuery = request.characterName
+        repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results, error) in
+            guard error == nil else {
+                // TODO: Error handling
+                return
+            }
+            
+            guard let characters = results else {
+                // TODO: Error handling
+                return
+            }
+            let response = SearchCharacters.Model.Response(characters: characters)
+            self.presenter?.presentSomething(response: response)
+        })
+    }
 }

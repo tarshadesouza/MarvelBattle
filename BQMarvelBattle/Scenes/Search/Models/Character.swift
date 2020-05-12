@@ -7,68 +7,152 @@
 //
 
 import Foundation
+import ObjectMapper
 
 struct Character {
-    var name: String
-    var comics: Comics
-    var series: Series
-    var events: Events
-    var stories: Stories
-    var url: [Url]
-//    var sectionType: CharacterInfoType
-    
-    init(result: [String:AnyObject]) {
-        self.name = result["name"] as! String
-        self.comics = result["comics"] as! Comics
-        self.series = result["series"] as! Series
-        self.events = result["events"] as! Events
-        self.stories = result["stories"] as! Stories
-        self.url = result["urls"] as! [Url]
+    var name: String = ""
+    var description: String = ""
+    var thumbnail: ThumbnailImage?
+    var comics: Comics?
+    var series: Series?
+    var events: Events?
+    var stories: Stories?
+    var url: [Url]?
+}
 
+extension Character: Mappable {
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        name    <- map["name"]
+        description    <- map["description"]
+        thumbnail    <- map["thumbnail"]
+        comics    <- map["comics"]
+        series    <- map["series"]
+        events    <- map["events"]
+        stories    <- map["stories"]
+        url    <- map["urls"]
     }
 }
 
-struct Comics {
-    var items: [ComicsSummary]
+struct Comics: Mappable {
+    var items: [ComicsSummary]?
     
-    init(items: [ComicsSummary]) {
-        self.items = items
+    init?(map: Map) {
+    }
+    mutating func mapping(map: Map) {
+        items    <- map["items"]
+    }
+    
+}
+
+struct ComicsSummary: Mappable  {
+    var name: String?
+    
+    init?(map: Map) {
+    }
+    mutating func mapping(map: Map) {
+        name    <- map["name"]
     }
 }
 
-struct ComicsSummary {
+struct Series: Mappable {
+    var items: [SeriesSummary]?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        items    <- map["items"]
+    }
+}
+
+struct SeriesSummary: Mappable {
     var name: String?
     
-    init(name: String) {
-         self.name = name
-     }
+    init?(map: Map) {
+    }
+    mutating func mapping(map: Map) {
+        name    <- map["name"]
+    }
 }
 
-struct Series {
-    var items: [SeriesSummary]
+struct Stories: Mappable {
+    var items: [StoriesSummary]?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        items    <- map["items"]
+    }
 }
 
-struct SeriesSummary {
-    var name: String?
-}
-
-struct Stories {
-    var items: [StoriesSummary]
-}
-
-struct StoriesSummary {
+struct StoriesSummary: Mappable {
     var name: String?
     var type: String?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        name    <- map["name"]
+        type    <- map["type"]
+        
+    }
 }
 
-struct Events {
-    var items: [EventsSummary]
+struct Events: Mappable {
+    var items: [EventsSummary]?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        items    <- map["items"]
+    }
 }
 
-struct EventsSummary {
+struct EventsSummary: Mappable {
     var name: String?
+    
+    init?(map: Map) {
+    }
+    mutating func mapping(map: Map) {
+        name    <- map["name"]
+    }
 }
 
-struct Url {
+struct Url: Mappable {
     var url: String?
+    
+    init?(map: Map) {
+    }
+    mutating func mapping(map: Map) {
+        url    <- map["url"]
+    }
 }
+
+struct ThumbnailImage {
+    var path: String = ""
+    var imageExtension: String = ""
+    
+    func fullPath() -> String {
+        return "\(path).\(imageExtension)"
+    }
+}
+
+extension ThumbnailImage: Mappable {
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        path    <- map["path"]
+        imageExtension    <- map["extension"]
+    }
+}
+

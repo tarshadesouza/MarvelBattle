@@ -12,6 +12,10 @@
 
 import UIKit
 
+protocol SearchCharactersDelegate {
+    func didSelectCharacter(at index: IndexPath)
+}
+
 protocol SearchCharactersDisplayLogic: class {
     func displayData(viewModel: SearchCharacters.Model.ViewModel)
 }
@@ -19,11 +23,26 @@ protocol SearchCharactersDisplayLogic: class {
 class SearchCharactersViewController: UIViewController, SearchCharactersDisplayLogic {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.tintColor = .appPrimaryDark
+            searchBar.barTintColor = .appAccent
+            
+            let textField = searchBar.value(forKey: "searchField") as! UITextField
+            
+            let glassIconView = textField.leftView as! UIImageView
+            glassIconView.image = glassIconView.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            glassIconView.tintColor = UIColor.white
+            
+            textField.font = .appBody
+            textField.textColor = .characterCellLabel
+        }
+    }
+    
+    var tableDatasource: SearchCharacterDatasource?
+    var tableDelegate: SearchCharacterTableDelegate?
     var interactor: SearchCharactersBusinessLogic?
     var router: (NSObjectProtocol & SearchCharactersRoutingLogic & SearchCharactersDataPassing)?
-    
     var characters: [Character]?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -40,6 +59,8 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         super.viewDidLoad()
         setupNavigationBar()
         setUpUI()
+        setupTableView(with: characters)
+        tableView.reloadData()
     }
     
     private func setup() {
@@ -56,26 +77,32 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         router.dataStore = interactor
     }
     
+    func setupTableView(with items: [Character]?) {
+        self.characters = items
+        tableDelegate = SearchCharacterTableDelegate(self)
+        tableDatasource = SearchCharacterDatasource(items: items, tableView: self.tableView, delegate: tableDelegate!)
+    }
+    
     private func setUpUI() {
-        tableView.dataSource = self
-        tableView.delegate = self
         searchBar.delegate = self
+        self.view.backgroundColor = .appPrimaryDark
     }
     
     func setupNavigationBar() {
+        
         let rankingButton = UIBarButtonItem(image: UIImage(named: "ic_trophy"),
                                             style: .done,
                                             target: self,
                                             action: #selector(SearchCharactersViewController.goToBattleArena))
-        rankingButton.tintColor = .systemYellow
         
         let battleArenaButton = UIBarButtonItem(image: UIImage(named: "ic_trophy"),
-                                            style: .done,
-                                            target: self,
-                                            action: #selector(SearchCharactersViewController.goToBattleArena))
-        rankingButton.tintColor = .red
+                                                style: .done,
+                                                target: self,
+                                                action: #selector(SearchCharactersViewController.goToBattleArena))
+        rankingButton.tintColor = .systemRed
+        battleArenaButton.tintColor = .systemBlue
         self.setRightButton([rankingButton,battleArenaButton])
-        self.setTitle("Search")
+        self.setTitle("Character Search")
     }
     
     // MARK: Routing
@@ -89,14 +116,16 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     }
     
     @objc func goToBattleArena() {
-//        self.router?.popViewController(self)
+        //        self.router?.popViewController(self)
     }
     
     func displayData(viewModel: SearchCharacters.Model.ViewModel) {
-        characters = viewModel.characters
+        guard let characters = viewModel.characters else {
+            return
+        }
+        setupTableView(with: characters)
         tableView.reloadData()
     }
-    
 }
 
 extension SearchCharactersViewController {
@@ -108,25 +137,17 @@ extension SearchCharactersViewController {
 }
 
 //MARK: Tableview Delegate methods
-extension SearchCharactersViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchCharactersViewController: SearchCharactersDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        guard let cellData = characters?[indexPath.row] else {
-            return UITableViewCell()
+    func didSelectCharacter(at index: IndexPath) {
+        searchBar.resignFirstResponder()
+        guard let character = characters?[index.row] else {
+        // TODO: Error handling
+            return
         }
-
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.CharacterCell, for: indexPath) as? CharacterTableViewCell {
-            cell.setUp(characterData: cellData)
-            return cell
-        }
-        return UITableViewCell()
+        
+        self.router?.showCharacterDetail(with: character)
     }
-    
 }
 
 extension SearchCharactersViewController: UISearchBarDelegate {
@@ -138,8 +159,7 @@ extension SearchCharactersViewController: UISearchBarDelegate {
         searchForCharacters(with: keySearch)
     }
     
-
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
- 
+        
     }
 }

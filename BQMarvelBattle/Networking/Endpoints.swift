@@ -8,6 +8,16 @@
 
 import Foundation
 import Alamofire
+import Keys
+import CryptoSwift
+
+fileprivate struct MarvelAPIConfig {
+    fileprivate static let keys = BQMarvelBattleKeys()
+    static let privatekey = keys.marvelPrivateKey
+    static let apikey = keys.marvelApiKey
+    static let ts = Date().timeIntervalSince1970.description
+    static let hash = "\(ts)\(privatekey)\(apikey)".md5()
+}
 
 enum MarvelBattleEndPoints {
     case retrieveData
@@ -16,6 +26,12 @@ enum MarvelBattleEndPoints {
 
 extension MarvelBattleEndPoints {
   
+    func authParameters() -> [String: String] {
+       return ["apikey": MarvelAPIConfig.apikey,
+               "ts": MarvelAPIConfig.ts,
+               "hash": MarvelAPIConfig.hash]
+   }
+    
     var httpMethod: HTTPMethod {
        switch self {
        case .retrieveData:
@@ -25,12 +41,21 @@ extension MarvelBattleEndPoints {
        }
    }
     
+    var path: String {
+         switch self {
+         case .retrieveData:
+             return ""
+         case .retrieveCharactersViaName:
+             return "/v1/public/characters"
+         }
+     }
+    
     var baseURLString: String {
         switch self {
         case .retrieveData:
-                return "https://gateway.marvel.com"
+                return "https://gateway.marvel.com:443"
         case.retrieveCharactersViaName:
-            return "https://gateway.marvel.com:443/v1/public/characters?&ts=1&apikey=41d357792b574304008264ad6fff6126&hash=de452e1787bb3f5aaf59370d641e8554"
+            return "https://gateway.marvel.com:443"
         }
     }
     
@@ -39,10 +64,20 @@ extension MarvelBattleEndPoints {
         case .retrieveData:
             return nil
         case .retrieveCharactersViaName(let query):
-            let params = ["nameStartsWith" : query]
+           var params = ["nameStartsWith" : query]
+           params.merge(dict: authParameters())
             return params
         }
     }
     
+    public func asURLRequest() throws -> URLRequest {
+      let url = try baseURLString.asURL()
+      
+      var request = URLRequest(url: url.appendingPathComponent(path))
+      request.httpMethod = httpMethod.rawValue
+      request.timeoutInterval = TimeInterval(10 * 1000)
+      
+      return try URLEncoding.default.encode(request, with: params)
+    }
+    
 }
-

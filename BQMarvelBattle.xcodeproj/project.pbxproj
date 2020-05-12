@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08CF818F1F6BB35D5B1107B2 /* Pods_BQMarvelBattle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA3FC2422B6D45EE09C8E0 /* Pods_BQMarvelBattle.framework */; };
-		C10D279124680C9A0016BDC2 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D278F24680C9A0016BDC2 /* CharacterTableViewCell.swift */; };
-		C10D279224680C9A0016BDC2 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10D279024680C9A0016BDC2 /* CharacterTableViewCell.xib */; };
-		C10D2794246810750016BDC2 /* genericInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2793246810750016BDC2 /* genericInfoLabel.swift */; };
+		7BB926EDFABD6B0F16ECA3C2 /* Pods_BQMarvelBattle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0FDD6B1A4780336B9CEC88 /* Pods_BQMarvelBattle.framework */; };
 		C10D2797246811910016BDC2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2796246811910016BDC2 /* Character.swift */; };
 		C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2799246814910016BDC2 /* StackViewExtension.swift */; };
 		C10D279E2468211D0016BDC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D279D2468211C0016BDC2 /* Constants.swift */; };
@@ -19,6 +16,9 @@
 		C179CFD02465DCBB00B6AE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179CFCF2465DCBB00B6AE62 /* ViewController.swift */; };
 		C179CFD52465DCBC00B6AE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C179CFD42465DCBC00B6AE62 /* Assets.xcassets */; };
 		C179CFD82465DCBC00B6AE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C179CFD62465DCBC00B6AE62 /* LaunchScreen.storyboard */; };
+		C17F5A592469B52500049729 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A582469B52500049729 /* DictionaryExtension.swift */; };
+		C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */; };
+		C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */; };
 		C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */; };
 		C1AA8D7B2466B4EE00E9B7FC /* BattleArenaWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D752466B4EE00E9B7FC /* BattleArenaWorker.swift */; };
 		C1AA8D7C2466B4EE00E9B7FC /* BattleArenaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */; };
@@ -42,14 +42,21 @@
 		C1AA8DA12466C43000E9B7FC /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8DA02466C43000E9B7FC /* LocalRepository.swift */; };
 		C1AA8DA32466D79D00E9B7FC /* SearchCharactersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */; };
 		C1AA8DA72466D9EC00E9B7FC /* MainNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8DA62466D9EC00E9B7FC /* MainNavBar.swift */; };
+		C1E94454246A7E450076261E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E94452246A7E450076261E /* CharacterTableViewCell.swift */; };
+		C1E94455246A7E450076261E /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E94453246A7E450076261E /* CharacterTableViewCell.xib */; };
+		C1E94457246A841C0076261E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E94456246A841C0076261E /* TableViewExtension.swift */; };
+		C1E94459246A843A0076261E /* NibExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E94458246A843A0076261E /* NibExtension.swift */; };
+		C1E945EC246A8B900076261E /* ResusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E945EB246A8B900076261E /* ResusableView.swift */; };
+		C1E946A3246AD8480076261E /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E946A2246AD8480076261E /* UIImageView+Kingfisher.swift */; };
+		C1E946A5246ADA790076261E /* UIFontStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E946A4246ADA790076261E /* UIFontStyleExtension.swift */; };
+		C1E946A7246ADC200076261E /* UIColorStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */; };
+		C1E9483C246AF2FC0076261E /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9483A246AF2FC0076261E /* CharacterDetailViewController.swift */; };
+		C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00DA3FC2422B6D45EE09C8E0 /* Pods_BQMarvelBattle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BQMarvelBattle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		939E771C66FA1B3378822198 /* Pods-BQMarvelBattle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.release.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.release.xcconfig"; sourceTree = "<group>"; };
-		C10D278F24680C9A0016BDC2 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
-		C10D279024680C9A0016BDC2 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
-		C10D2793246810750016BDC2 /* genericInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genericInfoLabel.swift; sourceTree = "<group>"; };
+		6E0FDD6B1A4780336B9CEC88 /* Pods_BQMarvelBattle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BQMarvelBattle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B232D2801F411E25AA4DB44D /* Pods-BQMarvelBattle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.release.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.release.xcconfig"; sourceTree = "<group>"; };
 		C10D2796246811910016BDC2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C10D2799246814910016BDC2 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
 		C10D279D2468211C0016BDC2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -60,6 +67,9 @@
 		C179CFD42465DCBC00B6AE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C179CFD72465DCBC00B6AE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C179CFD92465DCBC00B6AE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C17F5A582469B52500049729 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDatasource.swift; sourceTree = "<group>"; };
+		C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDatasource.swift; sourceTree = "<group>"; };
 		C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaPresenter.swift; sourceTree = "<group>"; };
 		C1AA8D752466B4EE00E9B7FC /* BattleArenaWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaWorker.swift; sourceTree = "<group>"; };
 		C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaRouter.swift; sourceTree = "<group>"; };
@@ -83,7 +93,17 @@
 		C1AA8DA02466C43000E9B7FC /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCharactersViewController.xib; sourceTree = "<group>"; };
 		C1AA8DA62466D9EC00E9B7FC /* MainNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavBar.swift; sourceTree = "<group>"; };
-		D3F99A9CF0BC7E5EE6356C18 /* Pods-BQMarvelBattle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.debug.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.debug.xcconfig"; sourceTree = "<group>"; };
+		C1E94452246A7E450076261E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		C1E94453246A7E450076261E /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		C1E94456246A841C0076261E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		C1E94458246A843A0076261E /* NibExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibExtension.swift; sourceTree = "<group>"; };
+		C1E945EB246A8B900076261E /* ResusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResusableView.swift; sourceTree = "<group>"; };
+		C1E946A2246AD8480076261E /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		C1E946A4246ADA790076261E /* UIFontStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontStyleExtension.swift; sourceTree = "<group>"; };
+		C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorStyleExtension.swift; sourceTree = "<group>"; };
+		C1E9483A246AF2FC0076261E /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailViewController.xib; sourceTree = "<group>"; };
+		CA1B5928B0D3846BF298C089 /* Pods-BQMarvelBattle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.debug.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,17 +111,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CF818F1F6BB35D5B1107B2 /* Pods_BQMarvelBattle.framework in Frameworks */,
+				7BB926EDFABD6B0F16ECA3C2 /* Pods_BQMarvelBattle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B8D424C453FBC8B44B30C33B /* Frameworks */ = {
+		4E4EE9CF722CB0B869BE17E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00DA3FC2422B6D45EE09C8E0 /* Pods_BQMarvelBattle.framework */,
+				6E0FDD6B1A4780336B9CEC88 /* Pods_BQMarvelBattle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,10 +129,11 @@
 		C10D278D24680C460016BDC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1E94839246AF2E60076261E /* CharacterDetail */,
+				C17F5A5D2469B68A00049729 /* DataSources */,
 				C10D278E24680C5E0016BDC2 /* Cells */,
 				C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */,
 				C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */,
-				C10D2793246810750016BDC2 /* genericInfoLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,8 +141,8 @@
 		C10D278E24680C5E0016BDC2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C10D278F24680C9A0016BDC2 /* CharacterTableViewCell.swift */,
-				C10D279024680C9A0016BDC2 /* CharacterTableViewCell.xib */,
+				C1E94452246A7E450076261E /* CharacterTableViewCell.swift */,
+				C1E94453246A7E450076261E /* CharacterTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -138,6 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				C10D2799246814910016BDC2 /* StackViewExtension.swift */,
+				C17F5A582469B52500049729 /* DictionaryExtension.swift */,
+				C1E94456246A841C0076261E /* TableViewExtension.swift */,
+				C1E94458246A843A0076261E /* NibExtension.swift */,
+				C1E946A2246AD8480076261E /* UIImageView+Kingfisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,7 +173,7 @@
 				C179CFCA2465DCBB00B6AE62 /* BQMarvelBattle */,
 				C179CFC92465DCBB00B6AE62 /* Products */,
 				DF2F6F5BF94B7365DD7A3C4A /* Pods */,
-				B8D424C453FBC8B44B30C33B /* Frameworks */,
+				4E4EE9CF722CB0B869BE17E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +199,30 @@
 				C179CFD92465DCBC00B6AE62 /* Info.plist */,
 			);
 			path = BQMarvelBattle;
+			sourceTree = "<group>";
+		};
+		C17F5A5A2469B5CC00049729 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		C17F5A5D2469B68A00049729 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		C17F5A602469B76800049729 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				C1E945EB246A8B900076261E /* ResusableView.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		C1AA8D612466A7D400E9B7FC /* Scenes */ = {
@@ -247,6 +296,9 @@
 		C1AA8DA42466D9DA00E9B7FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C1E945ED246A8E9D0076261E /* Style */,
+				C17F5A602469B76800049729 /* Reusable */,
+				C17F5A5A2469B5CC00049729 /* DataSources */,
 				C10D27982468147C0016BDC2 /* Extensions */,
 				C1AA8DA52466D9DF00E9B7FC /* NavBar */,
 				C10D279D2468211C0016BDC2 /* Constants.swift */,
@@ -262,11 +314,29 @@
 			path = NavBar;
 			sourceTree = "<group>";
 		};
+		C1E945ED246A8E9D0076261E /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				C1E946A4246ADA790076261E /* UIFontStyleExtension.swift */,
+				C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		C1E94839246AF2E60076261E /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C1E9483A246AF2FC0076261E /* CharacterDetailViewController.swift */,
+				C1E9483B246AF2FC0076261E /* CharacterDetailViewController.xib */,
+			);
+			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
 		DF2F6F5BF94B7365DD7A3C4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D3F99A9CF0BC7E5EE6356C18 /* Pods-BQMarvelBattle.debug.xcconfig */,
-				939E771C66FA1B3378822198 /* Pods-BQMarvelBattle.release.xcconfig */,
+				CA1B5928B0D3846BF298C089 /* Pods-BQMarvelBattle.debug.xcconfig */,
+				B232D2801F411E25AA4DB44D /* Pods-BQMarvelBattle.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -278,11 +348,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C179CFDC2465DCBC00B6AE62 /* Build configuration list for PBXNativeTarget "BQMarvelBattle" */;
 			buildPhases = (
-				D1275AC7C321E10DCEE6EC76 /* [CP] Check Pods Manifest.lock */,
+				BC2FE6057D5F12A399E58156 /* [CP] Check Pods Manifest.lock */,
 				C179CFC42465DCBB00B6AE62 /* Sources */,
 				C179CFC52465DCBB00B6AE62 /* Frameworks */,
 				C179CFC62465DCBB00B6AE62 /* Resources */,
-				3F98AF0FDA3AA0774F659E58 /* [CP] Embed Pods Frameworks */,
+				06C32764A90EF485934D2446 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,14 +404,15 @@
 				C1AA8DA32466D79D00E9B7FC /* SearchCharactersViewController.xib in Resources */,
 				C179CFD82465DCBC00B6AE62 /* LaunchScreen.storyboard in Resources */,
 				C179CFD52465DCBC00B6AE62 /* Assets.xcassets in Resources */,
-				C10D279224680C9A0016BDC2 /* CharacterTableViewCell.xib in Resources */,
+				C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */,
+				C1E94455246A7E450076261E /* CharacterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F98AF0FDA3AA0774F659E58 /* [CP] Embed Pods Frameworks */ = {
+		06C32764A90EF485934D2446 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,7 +429,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1275AC7C321E10DCEE6EC76 /* [CP] Check Pods Manifest.lock */ = {
+		BC2FE6057D5F12A399E58156 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,33 +459,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1AA8D992466B64000E9B7FC /* RankingsInteractor.swift in Sources */,
-				C10D279124680C9A0016BDC2 /* CharacterTableViewCell.swift in Sources */,
 				C1AA8D872466B5F400E9B7FC /* SearchCharactersPresenter.swift in Sources */,
 				C1AA8D8A2466B5F400E9B7FC /* SearchCharactersModels.swift in Sources */,
 				C1AA8D8B2466B5F400E9B7FC /* SearchCharactersViewController.swift in Sources */,
 				C10D279E2468211D0016BDC2 /* Constants.swift in Sources */,
+				C1E9483C246AF2FC0076261E /* CharacterDetailViewController.swift in Sources */,
+				C1E94454246A7E450076261E /* CharacterTableViewCell.swift in Sources */,
 				C1AA8D8C2466B5F400E9B7FC /* SearchCharactersInteractor.swift in Sources */,
 				C1AA8D7D2466B4EE00E9B7FC /* BattleArenaModels.swift in Sources */,
 				C1AA8D962466B64000E9B7FC /* RankingsRouter.swift in Sources */,
+				C1E94459246A843A0076261E /* NibExtension.swift in Sources */,
+				C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */,
+				C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */,
 				C1AA8D892466B5F400E9B7FC /* SearchCharactersRouter.swift in Sources */,
 				C1AA8D9F2466C42600E9B7FC /* RemoteRepository.swift in Sources */,
+				C1E94457246A841C0076261E /* TableViewExtension.swift in Sources */,
 				C1AA8D982466B64000E9B7FC /* RankingsViewController.swift in Sources */,
 				C1AA8D7C2466B4EE00E9B7FC /* BattleArenaRouter.swift in Sources */,
 				C1AA8D9C2466B9FB00E9B7FC /* Endpoints.swift in Sources */,
+				C1E946A5246ADA790076261E /* UIFontStyleExtension.swift in Sources */,
 				C1AA8D942466B64000E9B7FC /* RankingsPresenter.swift in Sources */,
 				C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */,
 				C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */,
 				C1AA8D952466B64000E9B7FC /* RankingsWorker.swift in Sources */,
 				C1AA8D7B2466B4EE00E9B7FC /* BattleArenaWorker.swift in Sources */,
+				C1E945EC246A8B900076261E /* ResusableView.swift in Sources */,
 				C1AA8D972466B64000E9B7FC /* RankingsModels.swift in Sources */,
 				C1AA8D882466B5F400E9B7FC /* SearchCharactersWorker.swift in Sources */,
 				C1AA8D7F2466B4EE00E9B7FC /* BattleArenaInteractor.swift in Sources */,
+				C1E946A3246AD8480076261E /* UIImageView+Kingfisher.swift in Sources */,
 				C1AA8DA12466C43000E9B7FC /* LocalRepository.swift in Sources */,
 				C179CFD02465DCBB00B6AE62 /* ViewController.swift in Sources */,
-				C10D2794246810750016BDC2 /* genericInfoLabel.swift in Sources */,
 				C10D2797246811910016BDC2 /* Character.swift in Sources */,
+				C1E946A7246ADC200076261E /* UIColorStyleExtension.swift in Sources */,
 				C179CFCC2465DCBB00B6AE62 /* AppDelegate.swift in Sources */,
 				C1AA8D7E2466B4EE00E9B7FC /* BattleArenaViewController.swift in Sources */,
+				C17F5A592469B52500049729 /* DictionaryExtension.swift in Sources */,
 				C1AA8DA72466D9EC00E9B7FC /* MainNavBar.swift in Sources */,
 				C179CFCE2465DCBB00B6AE62 /* SceneDelegate.swift in Sources */,
 			);
@@ -550,7 +630,7 @@
 		};
 		C179CFDD2465DCBC00B6AE62 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3F99A9CF0BC7E5EE6356C18 /* Pods-BQMarvelBattle.debug.xcconfig */;
+			baseConfigurationReference = CA1B5928B0D3846BF298C089 /* Pods-BQMarvelBattle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -569,7 +649,7 @@
 		};
 		C179CFDE2465DCBC00B6AE62 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 939E771C66FA1B3378822198 /* Pods-BQMarvelBattle.release.xcconfig */;
+			baseConfigurationReference = B232D2801F411E25AA4DB44D /* Pods-BQMarvelBattle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

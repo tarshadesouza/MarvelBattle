@@ -2,86 +2,55 @@
 //  CharacterTableViewCell.swift
 //  BQMarvelBattle
 //
-//  Created by Tarsha de Souza on 10/5/20.
+//  Created by Tarsha De Souza on 12/05/2020.
 //  Copyright © 2020 Tarsha de Souza. All rights reserved.
 //
 
 import UIKit
 
-enum CharacterInfoType {
-    case name
-    case series
-    case stories
-    case comics
-    case events
-}
-
 class CharacterTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var characterInfoStackView: UIStackView!
-    
-    @IBOutlet weak var iconImageView: UIImageView!
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        characterInfoStackView.clearSubviews()
+    @IBOutlet weak var characterName: UILabel! {
+        didSet {
+            characterName.font = .primaryLabel
+            characterName.backgroundColor = .clear
+            characterName.textColor = .characterCellLabel
+        }
     }
     
-    func setUp(characterData: Character) {
-        addContentView(stackData: characterData)
+    @IBOutlet weak var characterDescription: UILabel! {
+        didSet {
+            characterDescription.font = .secondaryLabel
+            characterDescription.backgroundColor = .clear
+            characterDescription.textColor = .characterCellLabel
+            characterDescription.numberOfLines = 2
+        }
+    }
+    
+    @IBOutlet weak var characterImage: UIImageView! {
+        didSet {
+            characterImage.contentMode = .scaleAspectFill
+        }
+    }
+    
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            containerView.backgroundColor = .appPrimaryDark
+        }
     }
 
-    private func addContentView(stackData: Character) {
-//        switch stackData.sectionType {
-//            
-//        case .name:
-//            characterInfoStackView.addArrangedSubview(setUpLabel(with: stackData.name, cellData: stackData))
-//        case .series:
-//            characterInfoStackView.addArrangedSubview(setUpStackSection(with: stackData)!)
-//        case .stories:
-//            characterInfoStackView.addArrangedSubview(setUpStackSection(with: stackData)!)
-//        case .comics:
-//            characterInfoStackView.addArrangedSubview(setUpStackSection(with: stackData)!)
-//        case .events:
-//            characterInfoStackView.addArrangedSubview(setUpStackSection(with: stackData)!)
-//
-//        @unknown default:
-//            return
-//        }
-    }
+    override func prepareForReuse() {
+         super.prepareForReuse()
+     }
     
-    private func setUpLabel(with title: String, cellData: Character) -> UILabel {
-        let titleLabel = GenericInfoLabel()
-        titleLabel.setup(title: title, parentView: characterInfoStackView, cellData: cellData, delegate: nil)
-        return titleLabel
-    }
+    static func height() -> CGFloat {
+          return 90
+      }
     
-    // add stack view for each sections
-//    private func setUpStackSection(with cellData: Character) -> UIStackView? {
-//        let sectionStackView = UIStackView()
-//        switch cellData.sectionType {
-//
-//        case .name:
-//            return nil
-//        case .series:
-//            cellData.series.forEach { serie in
-//                sectionStackView.addArrangedSubview(setUpLabel(with: serie, cellData: cellData))
-//            }
-//        case .stories:
-//            cellData.stories.forEach { story in
-//                sectionStackView.addArrangedSubview(setUpLabel(with: story, cellData: cellData))
-//            }
-//        case .comics:
-//            cellData.comics.forEach { comic in
-//                sectionStackView.addArrangedSubview(setUpLabel(with: comic, cellData: cellData))
-//            }
-//        case .events:
-//            cellData.events.forEach { event in
-//                sectionStackView.addArrangedSubview(setUpLabel(with: event, cellData: cellData))
-//            }
-//        @unknown default:
-//            return nil
-//        }
-//        return sectionStackView
-//    }
+    func setUp(characterData: Character) {
+        characterName.text = characterData.name
+        characterDescription.text = characterData.description.isEmpty ? "No description" : characterData.description
+        characterImage.download(image: characterData.thumbnail?.fullPath() ?? "")
+    }
+
 }

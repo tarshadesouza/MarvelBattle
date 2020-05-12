@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         AppDelegate.setupNavBarBehaviour()
+        
         window?.rootViewController = UINavigationController(rootViewController:SearchCharactersViewController())
         window?.makeKeyAndVisible()
         return true

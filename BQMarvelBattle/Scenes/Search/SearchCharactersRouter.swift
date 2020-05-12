@@ -12,46 +12,22 @@
 
 import UIKit
 
-@objc protocol SearchCharactersRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+protocol SearchCharactersRoutingLogic {
+    func showCharacterDetail(with character: Character)
 }
 
 protocol SearchCharactersDataPassing {
-  var dataStore: SearchCharactersDataStore? { get }
+    var dataStore: SearchCharactersDataStore? { get }
 }
 
 class SearchCharactersRouter: NSObject, SearchCharactersRoutingLogic, SearchCharactersDataPassing{
-   weak var viewController: SearchCharactersViewController?
-  var dataStore: SearchCharactersDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: SearchCharactersViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: SearchCharactersDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: SearchCharactersViewController?
+    var dataStore: SearchCharactersDataStore?
+    
+    func showCharacterDetail(with character: Character) {
+        guard let SearchViewController = viewController else { return }
+        let characterDetailVC = CharacterDetailViewController()
+        characterDetailVC.character = character
+        SearchViewController.show(characterDetailVC, sender: self)
+    }
 }
