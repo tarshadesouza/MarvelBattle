@@ -31,13 +31,12 @@ class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
     
     func calculateWinner(fighters: [Character]) -> Character {
         let sortedArray = fighters.sorted {(a, b) -> Bool in
-            guard let fighterA = a.comics?.items, let fighterB = b.comics?.items else {
+            
+            guard let fighterA = a.comics?.available, let fighterB = b.comics?.available else {
                 return false
             }
-            return fighterA.count > fighterB.count
+            return fighterA > fighterB
         }
         return sortedArray.first ?? Character()
     }
-    
-    
 }

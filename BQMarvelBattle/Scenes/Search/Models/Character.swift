@@ -41,12 +41,14 @@ extension Character: Mappable {
 struct Comics: Mappable, Equatable {
  
     var items: [ComicsSummary]?
+    var available: Int?
     
     init?(map: Map) {
     }
     
     mutating func mapping(map: Map) {
         items    <- map["items"]
+        available <- map["available"]
     }
     
     static func >(lhs: Comics, rhs: Comics) -> Bool {
