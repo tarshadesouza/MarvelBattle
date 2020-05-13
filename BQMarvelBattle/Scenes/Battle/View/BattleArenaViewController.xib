@@ -58,9 +58,14 @@
                         <constraint firstAttribute="trailing" secondItem="MoX-z7-eg9" secondAttribute="trailing" constant="17" id="wIK-k6-An9"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfN-14-Rp6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfN-14-Rp6" customClass="RoundButton" customModule="BQMarvelBattle" customModuleProvider="target">
                     <rect key="frame" x="20" y="667" width="374" height="56"/>
-                    <state key="normal" title="Begin Battle"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="battleButtonPressed:" destination="-1" eventType="touchUpInside" id="lzb-Zm-x9Q"/>
                     </connections>

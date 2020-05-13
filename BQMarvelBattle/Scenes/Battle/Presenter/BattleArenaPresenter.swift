@@ -12,20 +12,15 @@
 
 import UIKit
 
-protocol BattleArenaPresentationLogic
-{
-  func presentSomething(response: BattleArena.Something.Response)
+protocol BattleArenaPresentationLogic {
+    func presentWinner(response: BattleArena.Model.Response)
 }
 
-class BattleArenaPresenter: BattleArenaPresentationLogic
-{
-  weak var viewController: BattleArenaDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: BattleArena.Something.Response)
-  {
-    let viewModel = BattleArena.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class BattleArenaPresenter: BattleArenaPresentationLogic {
+    weak var viewController: BattleArenaDisplayLogic?
+    
+    func presentWinner(response: BattleArena.Model.Response) {
+        let viewModel = BattleArena.Model.ViewModel(winner: response.winner)
+        viewController?.showWinner(viewModel: viewModel)
+    }
 }

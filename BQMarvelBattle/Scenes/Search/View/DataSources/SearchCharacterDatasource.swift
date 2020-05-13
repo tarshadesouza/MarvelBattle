@@ -37,7 +37,7 @@ final class SearchCharacterDatasource: NSObject, ItemsTableViewDatasource {
         guard let character = self.items?[indexPath.row] else {
             return UITableViewCell()
         }
-        
+                
         if let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.defaultReuseIdentifier, for: indexPath) as? CharacterTableViewCell {
             cell.setUp(characterData: character)
             return cell
@@ -50,9 +50,11 @@ final class SearchCharacterDatasource: NSObject, ItemsTableViewDatasource {
 class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
     
     let delegate: SearchCharactersDelegate
-    
-    init(_ delegate: SearchCharactersDelegate) {
+    var isBattle = false
+
+    init(_ delegate: SearchCharactersDelegate, isBattle: Bool) {
         self.delegate = delegate
+        self.isBattle = isBattle
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,9 +62,23 @@ class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.didSelectCharacter(at: indexPath)
+        let selectedIndexPaths = tableView.indexPathsForSelectedRows
+
+        if isBattle && selectedIndexPaths?.count ?? 0 <= 2 {
+            if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
+                cell.contentView.backgroundColor = .appAccent
+            }
+            delegate.didSelectCharacter(at: indexPath)
+        } else {
+            delegate.didSelectCharacter(at: indexPath)
+        }
+
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
-            cell.contentView.backgroundColor = .appAccent
+            cell.contentView.backgroundColor = .appPrimaryDark
+            delegate.didDeSelectCharacter(at: indexPath)
         }
     }
 }

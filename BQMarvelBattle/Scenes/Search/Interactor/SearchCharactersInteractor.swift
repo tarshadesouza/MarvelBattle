@@ -39,7 +39,7 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
                 return
             }
             let response = SearchCharacters.Model.Response(characters: characters)
-            self.presenter?.presentSomething(response: response)
+            self.presenter?.presentSearchResults(response: response)
         })
     }
 }

@@ -38,18 +38,36 @@ extension Character: Mappable {
     }
 }
 
-struct Comics: Mappable {
+struct Comics: Mappable, Equatable {
+ 
     var items: [ComicsSummary]?
     
     init?(map: Map) {
     }
+    
     mutating func mapping(map: Map) {
         items    <- map["items"]
     }
     
+    static func >(lhs: Comics, rhs: Comics) -> Bool {
+        if lhs.items?.count ?? 0 > rhs.items?.count ?? 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func == (lhs: Comics, rhs: Comics) -> Bool {
+        if lhs.items  == rhs.items {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
-struct ComicsSummary: Mappable  {
+struct ComicsSummary: Mappable, Equatable  {
     var name: String?
     
     init?(map: Map) {
@@ -101,7 +119,6 @@ struct StoriesSummary: Mappable {
     mutating func mapping(map: Map) {
         name    <- map["name"]
         type    <- map["type"]
-        
     }
 }
 
@@ -156,3 +173,12 @@ extension ThumbnailImage: Mappable {
     }
 }
 
+extension Character: Equatable {
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        if lhs.name == rhs.name {
+            return true
+        } else {
+            return false
+        }
+    }
+}

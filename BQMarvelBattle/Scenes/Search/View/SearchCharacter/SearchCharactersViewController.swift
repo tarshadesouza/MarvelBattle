@@ -14,6 +14,7 @@ import UIKit
 
 protocol SearchCharactersDelegate {
     func didSelectCharacter(at index: IndexPath)
+    func didDeSelectCharacter(at index: IndexPath)
 }
 
 protocol SearchCharactersDisplayLogic: class {
@@ -39,15 +40,28 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     }
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     var tableDatasource: SearchCharacterDatasource?
     var tableDelegate: SearchCharacterTableDelegate?
     var interactor: SearchCharactersBusinessLogic?
     var router: (NSObjectProtocol & SearchCharactersRoutingLogic & SearchCharactersDataPassing)?
     var characters: [Character]?
     var isBattle = false
+    var isEditingFighterList = false {
+        didSet {
+            if isEditingFighterList {
+            }
+        }
+    }
     var battleArray = [Character]()
-    var numberOfFighters = 0
+    var numberOfFighters: Int = 0 {
+        didSet{
+            if numberOfFighters == 2 {
+                numberOfFighters = 0
+                self.router?.presentBattlePopUp()
+            }
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -83,8 +97,9 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     
     func setupTableView(with items: [Character]?) {
         self.characters = items
-        tableDelegate = SearchCharacterTableDelegate(self)
+        tableDelegate = SearchCharacterTableDelegate(self, isBattle: isBattle)
         tableDatasource = SearchCharacterDatasource(items: items, tableView: self.tableView, delegate: tableDelegate!)
+        tableView.allowsMultipleSelection = true
     }
     
     private func setUpUI() {
@@ -126,7 +141,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     }
     
     func isReadyToBattle() -> Bool {
-        if numberOfFighters == 2 {
+        if isEditingFighterList {
             return true
         }
         return false
@@ -138,46 +153,5 @@ extension SearchCharactersViewController {
     func searchForCharacters(with name: String) {
         let request = SearchCharacters.Model.Request(characterName: name)
         interactor?.searchCharacterNames(request: request)
-    }
-}
-
-//MARK: Tableview Delegate methods
-extension SearchCharactersViewController: SearchCharactersDelegate {
-    
-    func didSelectCharacter(at index: IndexPath) {
-        searchBar.resignFirstResponder()
-
-        guard let character = characters?[index.row] else {
-            // TODO: Error handling
-            return
-        }
-        
-        if isBattle {
-            if isReadyToBattle() {
-                numberOfFighters = 0
-                self.router?.goToFightBattle(with: battleArray)
-            } else {
-                battleArray.append(character)
-                numberOfFighters += 1
-            }
-        } else {
-            self.router?.showCharacterDetail(with: character)
-        }
-    }
-    
-
-}
-
-extension SearchCharactersViewController: UISearchBarDelegate {
-    
-    //MARK: SearchBar Delegates
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let keySearch = searchBar.text else {return}
-        searchBar.endEditing(true)
-        searchForCharacters(with: keySearch)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
     }
 }

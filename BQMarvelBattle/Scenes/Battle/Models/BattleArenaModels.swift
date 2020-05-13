@@ -12,20 +12,17 @@
 
 import UIKit
 
-enum BattleArena
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum BattleArena {
+    
+    enum Model {
+        struct Request {
+            var fighters: [Character]
+        }
+        struct Response {
+            var winner: Character
+        }
+        struct ViewModel {
+            var winner: Character
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

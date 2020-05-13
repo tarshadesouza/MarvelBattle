@@ -13,7 +13,7 @@
 import UIKit
 
 protocol BattleArenaDisplayLogic: class {
-    func displaySomething(viewModel: BattleArena.Something.ViewModel)
+    func showWinner(viewModel: BattleArena.Model.ViewModel)
 }
 
 class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
@@ -23,22 +23,31 @@ class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
             battleArenaContainer.backgroundColor = .appPrimaryDark
         }
     }
-        
+    
     @IBOutlet weak var firstOpponentView: UIImageView! {
         didSet {
             firstOpponentView.makeRounded()
+            firstOpponentView.contentMode = .scaleAspectFill
         }
     }
     
     @IBOutlet weak var secondOpponentView: UIImageView! {
         didSet {
             secondOpponentView.makeRounded()
+            secondOpponentView.contentMode = .scaleAspectFill
         }
     }
     
-    @IBOutlet weak var battleButton: UIButton!
+    @IBOutlet weak var battleButton: RoundButton! {
+        didSet {
+            battleButton.setTitle("Choose Fighters", for: .normal)
+            battleButton.titleLabel?.font = .appButton
+            battleButton.setTitleColor(.white, for: .normal)
+            battleButton.backgroundColor = .appAccent
+        }
+    }
     @IBOutlet weak var dashedLine: DashedLineView!
-
+    
     var interactor: BattleArenaBusinessLogic?
     var router: (NSObjectProtocol & BattleArenaRoutingLogic & BattleArenaDataPassing)?
     var fighters: [Character]?
@@ -47,7 +56,6 @@ class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -70,40 +78,62 @@ class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBar()
-        doSomething()
     }
     
-    func doSomething() {
-        let request = BattleArena.Something.Request()
-        interactor?.doSomething(request: request)
+    override func viewWillAppear(_ animated: Bool) {
+        configureFighterImage()
     }
     
-    func displaySomething(viewModel: BattleArena.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func getWinner() {
+        guard let battleFighters = fighters else {
+            return
+        }
+        let request = BattleArena.Model.Request(fighters: battleFighters)
+        interactor?.determineWinner(request: request)
+    }
+    
+    func showWinner(viewModel: BattleArena.Model.ViewModel) {
+        self.router?.presentWinnerPopUp(with: viewModel.winner)
+    }
+    
+    func configureFighterImage() {
+        guard let fighters = fighters else {
+            updateBattleButtonUI(isValid: false)
+            return
+        }
+        firstOpponentView.download(image: fighters[0].thumbnail?.fullPath() ?? "")
+        secondOpponentView.download(image: fighters[1].thumbnail?.fullPath() ?? "")
+        updateBattleButtonUI(isValid: true)
+    }
+    
+    func updateBattleButtonUI(isValid: Bool) {
+        if isValid {
+            battleButton.setTitle("FIGHT NOW", for: .normal)
+        } else {
+            battleButton.setTitle("Choose Fighters", for: .normal)
+        }
     }
     
     func setUpNavBar() {
         self.setTitle("Choose Your Fighters")
     }
+    
     @IBAction func battleButtonPressed(_ sender: UIButton) {
-      
-        guard let validFighters = fighters else {
+        guard let _ = fighters else {
             self.router?.routeToSearchController()
             return
         }
-        
-        print("FIGHT IS VALID WE GOT TWO FIGHTERS!!!", validFighters.count)
-        
+        getWinner()
     }
-    
 }
+
 extension BattleArenaViewController {
     func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = UIColor.lightGray.cgColor
         shapeLayer.lineWidth = 1
-        shapeLayer.lineDashPattern = [7, 3] // 7 is the length of dash, 3 is length of the gap.
-
+        shapeLayer.lineDashPattern = [7, 5]
+        
         let path = CGMutablePath()
         path.addLines(between: [p0, p1])
         shapeLayer.path = path

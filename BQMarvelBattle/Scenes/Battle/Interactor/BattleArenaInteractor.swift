@@ -13,19 +13,31 @@
 import UIKit
 
 protocol BattleArenaBusinessLogic {
-  func doSomething(request: BattleArena.Something.Request)
+    func determineWinner(request: BattleArena.Model.Request)
 }
 
 protocol BattleArenaDataStore {
-//  var name: String { get set }
+    //  var name: String { get set }
 }
 
 class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
-  var presenter: BattleArenaPresentationLogic?
-  
-  func doSomething(request: BattleArena.Something.Request) {
+    var presenter: BattleArenaPresentationLogic?
     
-    let response = BattleArena.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func determineWinner(request: BattleArena.Model.Request) {
+        let winner = calculateWinner(fighters: request.fighters)
+        let response = BattleArena.Model.Response(winner: winner)
+        presenter?.presentWinner(response: response)
+    }
+    
+    func calculateWinner(fighters: [Character]) -> Character {
+        let sortedArray = fighters.sorted {(a, b) -> Bool in
+            guard let fighterA = a.comics?.items, let fighterB = b.comics?.items else {
+                return false
+            }
+            return fighterA.count > fighterB.count
+        }
+        return sortedArray.first ?? Character()
+    }
+    
+    
 }

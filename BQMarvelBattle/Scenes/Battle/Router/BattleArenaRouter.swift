@@ -14,6 +14,7 @@ import UIKit
 
 protocol BattleArenaRoutingLogic {
     func routeToSearchController()
+    func presentWinnerPopUp(with winner: Character)
 }
 
 protocol BattleArenaDataPassing {
@@ -26,9 +27,32 @@ class BattleArenaRouter: NSObject, BattleArenaRoutingLogic, BattleArenaDataPassi
     
     func routeToSearchController() {
         guard let BattleArenaViewController = viewController else { return }
-        let searchViewController = SearchCharactersViewController()
+        let searchViewController = BattleArenaViewController.navigationController?.viewControllers[0] as! SearchCharactersViewController
         searchViewController.isBattle = true
-        BattleArenaViewController.show(searchViewController, sender: self)
+        BattleArenaViewController.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func presentWinnerPopUp(with winner: Character) {
+        guard let BattleArenaViewController = viewController else { return }
+        
+        let bundle = Bundle(for: type(of: self))
+        if let popUp = bundle.loadNibNamed(ReadyToBattlePopUpView.defaultReuseIdentifier, owner: self, options: nil)?.first as? ReadyToBattlePopUpView {
+            BattleArenaViewController.view.addSubview(popUp)
+            BattleArenaViewController.view.bringSubviewToFront(popUp)
+            
+            popUp.configurePopUp(with: winner.thumbnail?.fullPath() ?? "", text: winner.name, buttonText: "See Rankings")
+            popUp.translatesAutoresizingMaskIntoConstraints = false
+            
+            popUp.topAnchor.constraint(equalTo: BattleArenaViewController.view.topAnchor)
+                .isActive = true
+            popUp.leadingAnchor.constraint(equalTo: BattleArenaViewController.view.leadingAnchor)
+                .isActive = true
+            popUp.bottomAnchor.constraint(equalTo: BattleArenaViewController.view.bottomAnchor)
+                .isActive = true
+            popUp.trailingAnchor.constraint(equalTo: BattleArenaViewController.view.trailingAnchor)
+                .isActive = true
+            popUp.delegate = BattleArenaViewController
+        }
     }
     
 }

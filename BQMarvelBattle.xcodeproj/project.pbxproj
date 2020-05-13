@@ -11,6 +11,11 @@
 		C10D2797246811910016BDC2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2796246811910016BDC2 /* Character.swift */; };
 		C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2799246814910016BDC2 /* StackViewExtension.swift */; };
 		C10D279E2468211D0016BDC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D279D2468211C0016BDC2 /* Constants.swift */; };
+		C14694F7246BCD9B00602E03 /* ReadyToBattlePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14694F5246BCD9B00602E03 /* ReadyToBattlePopUpView.swift */; };
+		C14694F8246BCD9B00602E03 /* ReadyToBattlePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C14694F6246BCD9B00602E03 /* ReadyToBattlePopUpView.xib */; };
+		C1469689246C1EA300602E03 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1469688246C1EA300602E03 /* RoundedButton.swift */; };
+		C146968B246C3F7C00602E03 /* SearchCharacteresViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C146968A246C3F7C00602E03 /* SearchCharacteresViewController+Delegates.swift */; };
+		C146968D246C609E00602E03 /* BattleArenaViewConroller+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C146968C246C609E00602E03 /* BattleArenaViewConroller+Delegates.swift */; };
 		C179CFCC2465DCBB00B6AE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179CFCB2465DCBB00B6AE62 /* AppDelegate.swift */; };
 		C179CFCE2465DCBB00B6AE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179CFCD2465DCBB00B6AE62 /* SceneDelegate.swift */; };
 		C179CFD02465DCBB00B6AE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179CFCF2465DCBB00B6AE62 /* ViewController.swift */; };
@@ -61,6 +66,11 @@
 		C10D2796246811910016BDC2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C10D2799246814910016BDC2 /* StackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExtension.swift; sourceTree = "<group>"; };
 		C10D279D2468211C0016BDC2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C14694F5246BCD9B00602E03 /* ReadyToBattlePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToBattlePopUpView.swift; sourceTree = "<group>"; };
+		C14694F6246BCD9B00602E03 /* ReadyToBattlePopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadyToBattlePopUpView.xib; sourceTree = "<group>"; };
+		C1469688246C1EA300602E03 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		C146968A246C3F7C00602E03 /* SearchCharacteresViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchCharacteresViewController+Delegates.swift"; sourceTree = "<group>"; };
+		C146968C246C609E00602E03 /* BattleArenaViewConroller+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BattleArenaViewConroller+Delegates.swift"; sourceTree = "<group>"; };
 		C179CFC82465DCBB00B6AE62 /* BQMarvelBattle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BQMarvelBattle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C179CFCB2465DCBB00B6AE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C179CFCD2465DCBB00B6AE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +178,14 @@
 				C1E9484E246B0DBA0076261E /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1469687246C1E9100602E03 /* CustomButtons */ = {
+			isa = PBXGroup;
+			children = (
+				C1469688246C1EA300602E03 /* RoundedButton.swift */,
+			);
+			path = CustomButtons;
 			sourceTree = "<group>";
 		};
 		C179CFBF2465DCBB00B6AE62 = {
@@ -317,6 +335,7 @@
 		C1E945ED246A8E9D0076261E /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				C1469687246C1E9100602E03 /* CustomButtons */,
 				C1E9484B246B07E00076261E /* DashedLine */,
 				C1E946A4246ADA790076261E /* UIFontStyleExtension.swift */,
 				C1E946A6246ADC200076261E /* UIColorStyleExtension.swift */,
@@ -338,6 +357,7 @@
 			children = (
 				C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */,
 				C1AA8DA22466D79D00E9B7FC /* SearchCharactersViewController.xib */,
+				C146968A246C3F7C00602E03 /* SearchCharacteresViewController+Delegates.swift */,
 			);
 			path = SearchCharacter;
 			sourceTree = "<group>";
@@ -371,6 +391,9 @@
 			children = (
 				C1AA8D782466B4EE00E9B7FC /* BattleArenaViewController.swift */,
 				C1E94847246B038B0076261E /* BattleArenaViewController.xib */,
+				C14694F5246BCD9B00602E03 /* ReadyToBattlePopUpView.swift */,
+				C14694F6246BCD9B00602E03 /* ReadyToBattlePopUpView.xib */,
+				C146968C246C609E00602E03 /* BattleArenaViewConroller+Delegates.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +513,7 @@
 				C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */,
 				C1E94848246B038B0076261E /* BattleArenaViewController.xib in Resources */,
 				C1E94455246A7E450076261E /* CharacterTableViewCell.xib in Resources */,
+				C14694F8246BCD9B00602E03 /* ReadyToBattlePopUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +581,7 @@
 				C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */,
 				C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */,
 				C1AA8D892466B5F400E9B7FC /* SearchCharactersRouter.swift in Sources */,
+				C146968D246C609E00602E03 /* BattleArenaViewConroller+Delegates.swift in Sources */,
 				C1E9484D246B07F40076261E /* DashedLine.swift in Sources */,
 				C1AA8D9F2466C42600E9B7FC /* RemoteRepository.swift in Sources */,
 				C1E94457246A841C0076261E /* TableViewExtension.swift in Sources */,
@@ -567,13 +592,16 @@
 				C1AA8D942466B64000E9B7FC /* RankingsPresenter.swift in Sources */,
 				C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */,
 				C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */,
+				C1469689246C1EA300602E03 /* RoundedButton.swift in Sources */,
 				C1AA8D952466B64000E9B7FC /* RankingsWorker.swift in Sources */,
 				C1E945EC246A8B900076261E /* ResusableView.swift in Sources */,
 				C1AA8D972466B64000E9B7FC /* RankingsModels.swift in Sources */,
 				C1AA8D7F2466B4EE00E9B7FC /* BattleArenaInteractor.swift in Sources */,
 				C1E946A3246AD8480076261E /* UIImageView+Kingfisher.swift in Sources */,
+				C146968B246C3F7C00602E03 /* SearchCharacteresViewController+Delegates.swift in Sources */,
 				C1AA8DA12466C43000E9B7FC /* LocalRepository.swift in Sources */,
 				C179CFD02465DCBB00B6AE62 /* ViewController.swift in Sources */,
+				C14694F7246BCD9B00602E03 /* ReadyToBattlePopUpView.swift in Sources */,
 				C10D2797246811910016BDC2 /* Character.swift in Sources */,
 				C1E946A7246ADC200076261E /* UIColorStyleExtension.swift in Sources */,
 				C179CFCC2465DCBB00B6AE62 /* AppDelegate.swift in Sources */,

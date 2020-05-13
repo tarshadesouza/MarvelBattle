@@ -16,6 +16,7 @@ protocol SearchCharactersRoutingLogic {
     func showCharacterDetail(with character: Character)
     func goToBattleArena()
     func goToFightBattle(with fighters: [Character])
+    func presentBattlePopUp()
 }
 
 protocol SearchCharactersDataPassing {
@@ -41,8 +42,31 @@ class SearchCharactersRouter: NSObject, SearchCharactersRoutingLogic, SearchChar
     
     func goToFightBattle(with fighters: [Character]) {
         guard let SearchViewController = viewController else { return }
-            let battleArenaVC = BattleArenaViewController()
-            battleArenaVC.fighters = fighters
-            SearchViewController.show(battleArenaVC, sender: self)
+        let battleArenaVC = BattleArenaViewController()
+        battleArenaVC.fighters = fighters
+        SearchViewController.show(battleArenaVC, sender: self)
+    }
+    
+    func presentBattlePopUp() {
+        guard let SearchViewController = viewController else { return }
+        
+        let bundle = Bundle(for: type(of: self))
+        if let popUp = bundle.loadNibNamed(ReadyToBattlePopUpView.defaultReuseIdentifier, owner: self, options: nil)?.first as? ReadyToBattlePopUpView {
+            SearchViewController.view.addSubview(popUp)
+            SearchViewController.view.bringSubviewToFront(popUp)
+            
+            popUp.configurePopUp(text: "You have chosen your two fighters", buttonText: "I´m ready to battle")
+            popUp.translatesAutoresizingMaskIntoConstraints = false
+
+            popUp.topAnchor.constraint(equalTo: SearchViewController.view.topAnchor)
+                .isActive = true
+            popUp.leadingAnchor.constraint(equalTo: SearchViewController.view.leadingAnchor)
+                .isActive = true
+            popUp.bottomAnchor.constraint(equalTo: SearchViewController.view.bottomAnchor)
+                .isActive = true
+            popUp.trailingAnchor.constraint(equalTo: SearchViewController.view.trailingAnchor)
+                .isActive = true
+            popUp.delegate = SearchViewController
+        }
     }
 }

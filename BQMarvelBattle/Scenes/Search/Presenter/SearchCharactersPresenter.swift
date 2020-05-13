@@ -12,19 +12,18 @@
 
 import UIKit
 
-protocol SearchCharactersPresentationLogic
-{
-  func presentSomething(response: SearchCharacters.Model.Response)
+protocol SearchCharactersPresentationLogic {
+  func presentSearchResults(response: SearchCharacters.Model.Response)
 }
 
-class SearchCharactersPresenter: SearchCharactersPresentationLogic
-{
+class SearchCharactersPresenter: SearchCharactersPresentationLogic {
   weak var viewController: SearchCharactersDisplayLogic?
   
   // MARK: Do something
-  
-  func presentSomething(response: SearchCharacters.Model.Response) {
+  func presentSearchResults(response: SearchCharacters.Model.Response) {
     let viewModel = SearchCharacters.Model.ViewModel(characters: response.characters)
     viewController?.displayData(viewModel: viewModel)
   }
+    
+
 }
