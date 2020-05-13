@@ -12,20 +12,19 @@
 
 import UIKit
 
-enum Rankings
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum Rankings {
+    
+    enum Model {
+        struct Request {
+        
+        }
+        
+        struct Response {
+       
+        }
+        
+        struct ViewModel {
+        
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

@@ -12,20 +12,15 @@
 
 import UIKit
 
-protocol RankingsPresentationLogic
-{
-  func presentSomething(response: Rankings.Something.Response)
+protocol RankingsPresentationLogic {
+  func presentSomething(response: Rankings.Model.Response)
 }
 
-class RankingsPresenter: RankingsPresentationLogic
-{
+class RankingsPresenter: RankingsPresentationLogic {
   weak var viewController: RankingsDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Rankings.Something.Response)
-  {
-    let viewModel = Rankings.Something.ViewModel()
+    
+  func presentSomething(response: Rankings.Model.Response) {
+    let viewModel = Rankings.Model.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

@@ -35,7 +35,6 @@
 		C1AA8D8B2466B5F400E9B7FC /* SearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */; };
 		C1AA8D8C2466B5F400E9B7FC /* SearchCharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D862466B5F400E9B7FC /* SearchCharactersInteractor.swift */; };
 		C1AA8D942466B64000E9B7FC /* RankingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D8E2466B64000E9B7FC /* RankingsPresenter.swift */; };
-		C1AA8D952466B64000E9B7FC /* RankingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D8F2466B64000E9B7FC /* RankingsWorker.swift */; };
 		C1AA8D962466B64000E9B7FC /* RankingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D902466B64000E9B7FC /* RankingsRouter.swift */; };
 		C1AA8D972466B64000E9B7FC /* RankingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D912466B64000E9B7FC /* RankingsModels.swift */; };
 		C1AA8D982466B64000E9B7FC /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D922466B64000E9B7FC /* RankingsViewController.swift */; };
@@ -92,7 +91,6 @@
 		C1AA8D852466B5F400E9B7FC /* SearchCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersViewController.swift; sourceTree = "<group>"; };
 		C1AA8D862466B5F400E9B7FC /* SearchCharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersInteractor.swift; sourceTree = "<group>"; };
 		C1AA8D8E2466B64000E9B7FC /* RankingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsPresenter.swift; sourceTree = "<group>"; };
-		C1AA8D8F2466B64000E9B7FC /* RankingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsWorker.swift; sourceTree = "<group>"; };
 		C1AA8D902466B64000E9B7FC /* RankingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsRouter.swift; sourceTree = "<group>"; };
 		C1AA8D912466B64000E9B7FC /* RankingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsModels.swift; sourceTree = "<group>"; };
 		C1AA8D922466B64000E9B7FC /* RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				C1AA8D8E2466B64000E9B7FC /* RankingsPresenter.swift */,
-				C1AA8D8F2466B64000E9B7FC /* RankingsWorker.swift */,
 				C1AA8D902466B64000E9B7FC /* RankingsRouter.swift */,
 				C1AA8D912466B64000E9B7FC /* RankingsModels.swift */,
 				C1AA8D922466B64000E9B7FC /* RankingsViewController.swift */,
@@ -593,7 +590,6 @@
 				C10D279A246814910016BDC2 /* StackViewExtension.swift in Sources */,
 				C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */,
 				C1469689246C1EA300602E03 /* RoundedButton.swift in Sources */,
-				C1AA8D952466B64000E9B7FC /* RankingsWorker.swift in Sources */,
 				C1E945EC246A8B900076261E /* ResusableView.swift in Sources */,
 				C1AA8D972466B64000E9B7FC /* RankingsModels.swift in Sources */,
 				C1AA8D7F2466B4EE00E9B7FC /* BattleArenaInteractor.swift in Sources */,

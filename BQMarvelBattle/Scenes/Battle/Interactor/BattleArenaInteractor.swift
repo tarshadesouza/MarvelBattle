@@ -17,7 +17,6 @@ protocol BattleArenaBusinessLogic {
 }
 
 protocol BattleArenaDataStore {
-    //  var name: String { get set }
 }
 
 class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {

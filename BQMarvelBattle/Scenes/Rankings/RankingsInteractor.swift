@@ -12,30 +12,20 @@
 
 import UIKit
 
-protocol RankingsBusinessLogic
-{
-  func doSomething(request: Rankings.Something.Request)
+protocol RankingsBusinessLogic {
+    func doSomething(request: Rankings.Model.Request)
 }
 
-protocol RankingsDataStore
-{
-  //var name: String { get set }
+protocol RankingsDataStore {
 }
 
-class RankingsInteractor: RankingsBusinessLogic, RankingsDataStore
-{
-  var presenter: RankingsPresentationLogic?
-  var worker: RankingsWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Rankings.Something.Request)
-  {
-    worker = RankingsWorker()
-    worker?.doSomeWork()
-    
-    let response = Rankings.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+class RankingsInteractor: RankingsBusinessLogic, RankingsDataStore {
+    var presenter: RankingsPresentationLogic?
+
+    func doSomething(request: Rankings.Model.Request) {
+        
+        
+        let response = Rankings.Model.Response()
+        presenter?.presentSomething(response: response)
+    }
 }
