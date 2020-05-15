@@ -52,6 +52,14 @@ class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
             return (nil)
         }
         let fileUrl = documentDirectoryUrl.appendingPathComponent("BattleChallenges.json")
+        let fileManager = FileManager.default
+        let fileExists = (try? fileUrl.checkResourceIsReachable()) ?? false
+        if !fileExists {
+            //if its the first time lets write to it-
+            let initialArray = self.createNewArrayToSave(currentFighters: fighters)
+            writeToFile(fighters: initialArray, toFile: fileUrl)
+        }
+
         // Write to new json with previous values included
         //Read previous JSON
         let _ = retrieveFromJsonFile(fileUrl: fileUrl) { (battlesArray, error)  in
@@ -62,31 +70,36 @@ class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
             //Compare the two or merge the two so there are no duplicates
             let progressiveBattlesArray = self.createNewArrayToSave(previousBattlesArray: battlesArray, currentFighters: fighters)
             //Write to new progressive JSON
-            do {
-                let data = try JSONSerialization.data(withJSONObject: progressiveBattlesArray, options: [])
-                try data.write(to: fileUrl, options: [])
-            } catch {
-                print(AppError.customError(description: "BattleInteractor-writeToFile(): Error thrown line 99."))
-            }
+            self.writeToFile(fighters: progressiveBattlesArray, toFile: fileUrl)
             return (battlesArray)
         }
         
         // Read the new file && get the array
-        let finalBattleArray = retrieveFromJsonFile(fileUrl: fileUrl) { (currentBattleArray, error) in
+         let finalBattleArray = retrieveFromJsonFile(fileUrl: fileUrl) { (currentBattleArray, error) in
             if error != nil {
                 return (nil)
             }
             return (currentBattleArray)
         }
+        
         return (finalBattleArray)
     }
     
-    func createNewArrayToSave(previousBattlesArray: [Character]?, currentFighters: [Character]) -> [String : [[String : Any]]] {
+    func createNewArrayToSave(previousBattlesArray: [Character]? = nil, currentFighters: [Character]) -> [String : [[String : Any]]] {
         if let previousBattles = previousBattlesArray {
             let finalBattlesArray = Array(Set(currentFighters + previousBattles))
             return ["results": finalBattlesArray.toJSON()]
         } else {
             return ["results": currentFighters.toJSON()]
+        }
+    }
+    
+    func writeToFile(fighters: [String : [[String : Any]]], toFile fileUrl: URL) {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: fighters, options: [])
+            try data.write(to: fileUrl, options: [])
+        } catch {
+            print(AppError.customError(description: "BattleInteractor-writeToFile(): Error thrown line 99."))
         }
     }
 }

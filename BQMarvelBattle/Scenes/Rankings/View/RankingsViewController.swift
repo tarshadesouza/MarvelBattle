@@ -19,7 +19,11 @@ protocol RankingsDisplayLogic: class {
 
 class RankingsViewController: UIViewController, RankingsDisplayLogic {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.backgroundColor = .appAccent
+        }
+    }
     
     var interactor: RankingsBusinessLogic?
     var router: (NSObjectProtocol & RankingsRoutingLogic & RankingsDataPassing)?
@@ -54,6 +58,8 @@ class RankingsViewController: UIViewController, RankingsDisplayLogic {
         super.viewDidLoad()
         interactor?.retrieveRankings()
         setupTableView()
+        self.setTitle("Leader Board")
+        self.navigationController?.navigationBar.tintColor = .appAccent
     }
     
     override func viewDidAppear(_ animated: Bool) {
