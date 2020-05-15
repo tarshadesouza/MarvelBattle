@@ -13,17 +13,25 @@
 import UIKit
 
 protocol SearchCharactersPresentationLogic {
-  func presentSearchResults(response: SearchCharacters.Model.Response)
+    func presentSearchResults(response: SearchCharacters.Model.Response)
+    func showLocalDefaultCharacters(response: SearchCharacters.Model.Response)
+    func showError(with error: AppError)
 }
 
 class SearchCharactersPresenter: SearchCharactersPresentationLogic {
-  weak var viewController: SearchCharactersDisplayLogic?
-  
-  // MARK: Do something
-  func presentSearchResults(response: SearchCharacters.Model.Response) {
-    let viewModel = SearchCharacters.Model.ViewModel(characters: response.characters)
-    viewController?.displayData(viewModel: viewModel)
-  }
+    weak var viewController: SearchCharactersDisplayLogic?
     
-
+    func presentSearchResults(response: SearchCharacters.Model.Response) {
+        let viewModel = SearchCharacters.Model.ViewModel(characters: response.characters)
+        viewController?.displayData(viewModel: viewModel)
+    }
+    
+    func showLocalDefaultCharacters(response: SearchCharacters.Model.Response) {
+        let viewModel = SearchCharacters.Model.ViewModel(characters: response.characters)
+        viewController?.displayData(viewModel: viewModel)
+    }
+    
+    func showError(with error: AppError) {
+        viewController?.showError(error: error)
+    }
 }

@@ -11,13 +11,14 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol SearchCharactersBusinessLogic {
     func searchCharacterNames(request: SearchCharacters.Model.Request)
+    func searchAllCharacters()
 }
 
 protocol SearchCharactersDataStore {
-    //var name: String { get set }
 }
 
 class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharactersDataStore {
@@ -26,20 +27,42 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
     
     func searchCharacterNames(request: SearchCharacters.Model.Request) {
         repository = RemoteRepository()
-        
         let nameQuery = request.characterName
         repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results, error) in
             guard error == nil else {
-                // TODO: Error handling
+                self.presenter?.showError(with: AppError.resourceLoadingError)
                 return
             }
             
             guard let characters = results else {
-                // TODO: Error handling
+                self.presenter?.showError(with: AppError.resourceLoadingError)
                 return
             }
             let response = SearchCharacters.Model.Response(characters: characters)
             self.presenter?.presentSearchResults(response: response)
         })
+    }
+    
+    func searchAllCharacters() {
+        repository = LocalRepository()
+        repository?.retrieveAllCharacters(path: "characters", completion: { (characters: [Character]?, error) in
+            guard error == nil else {
+                self.presenter?.showError(with: AppError.resourceLoadingError)
+                return
+            }
+            
+            guard let characters = characters else {
+                self.presenter?.showError(with: AppError.resourceLoadingError)
+                return
+            }
+            let response = SearchCharacters.Model.Response(characters: characters)
+            self.presenter?.presentSearchResults(response: response)
+        })
+    }
+}
+
+class Connectivity {
+    class func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
     }
 }

@@ -1,14 +1,14 @@
 //
-//  SearchCharacterDatasource.swift
+//  RankingsDataSource.swift
 //  BQMarvelBattle
 //
-//  Created by Tarsha De Souza on 11/05/2020.
+//  Created by Tarsha De Souza on 13/05/2020.
 //  Copyright © 2020 Tarsha de Souza. All rights reserved.
 //
 
 import UIKit
 
-final class SearchCharacterDatasource: NSObject, ItemsTableViewDatasource {
+final class RankingsDataSource: NSObject, ItemsTableViewDatasource {
     
     var items:[Character]? = []
     weak var tableView: UITableView?
@@ -45,13 +45,11 @@ final class SearchCharacterDatasource: NSObject, ItemsTableViewDatasource {
     }
 }
 
-class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
+class RankingsTableviewDelegate: NSObject, UITableViewDelegate {
     let delegate: SearchCharactersDelegate
-    var isBattle = false
     
-    init(_ delegate: SearchCharactersDelegate, isBattle: Bool) {
+    init(_ delegate: SearchCharactersDelegate) {
         self.delegate = delegate
-        self.isBattle = isBattle
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,22 +57,6 @@ class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedIndexPaths = tableView.indexPathsForSelectedRows
-        
-        if isBattle && selectedIndexPaths?.count ?? 0 <= 2 {
-            if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
-                cell.contentView.backgroundColor = .appAccent
-            }
-            delegate.didSelectCharacter(at: indexPath)
-        } else {
-            delegate.didSelectCharacter(at: indexPath)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
-            cell.contentView.backgroundColor = .appPrimaryDark
-            delegate.didDeSelectCharacter(at: indexPath)
-        }
+        delegate.didSelectCharacter(at: indexPath)
     }
 }

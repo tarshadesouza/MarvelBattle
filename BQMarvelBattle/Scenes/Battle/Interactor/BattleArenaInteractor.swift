@@ -11,16 +11,24 @@
 //
 
 import UIKit
+import ObjectMapper
+
+protocol RankingsGeneralProtocol {
+    func retrieveFromJsonFile(fileUrl: URL, completion: @escaping ([Character]?, Error?) -> [Character]?) -> [Character]?
+}
 
 protocol BattleArenaBusinessLogic {
     func determineWinner(request: BattleArena.Model.Request)
 }
 
 protocol BattleArenaDataStore {
+    var BattleSummary: [Character]? { get }
 }
 
 class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
     var presenter: BattleArenaPresentationLogic?
+    var repository: Repository?
+    var BattleSummary: [Character]?
     
     func determineWinner(request: BattleArena.Model.Request) {
         let winner = calculateWinner(fighters: request.fighters)
@@ -29,13 +37,81 @@ class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
     }
     
     func calculateWinner(fighters: [Character]) -> Character {
+        BattleSummary = writeAndReadToFile(fighters: fighters)
         let sortedArray = fighters.sorted {(a, b) -> Bool in
-            
             guard let fighterA = a.comics?.available, let fighterB = b.comics?.available else {
                 return false
             }
             return fighterA > fighterB
         }
         return sortedArray.first ?? Character()
+    }
+    
+    func writeAndReadToFile(fighters: [Character]) -> ([Character]?) {
+        guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return (nil)
+        }
+        let fileUrl = documentDirectoryUrl.appendingPathComponent("BattleChallenges.json")
+        // Write to new json with previous values included
+        //Read previous JSON
+        let _ = retrieveFromJsonFile(fileUrl: fileUrl) { (battlesArray, error)  in
+            if error != nil {
+                return (nil)
+            }
+            
+            //Compare the two or merge the two so there are no duplicates
+            let progressiveBattlesArray = self.createNewArrayToSave(previousBattlesArray: battlesArray, currentFighters: fighters)
+            //Write to new progressive JSON
+            do {
+                let data = try JSONSerialization.data(withJSONObject: progressiveBattlesArray, options: [])
+                try data.write(to: fileUrl, options: [])
+            } catch {
+                print(AppError.customError(description: "BattleInteractor-writeToFile(): Error thrown line 99."))
+            }
+            return (battlesArray)
+        }
+        
+        // Read the new file && get the array
+        let finalBattleArray = retrieveFromJsonFile(fileUrl: fileUrl) { (currentBattleArray, error) in
+            if error != nil {
+                return (nil)
+            }
+            return (currentBattleArray)
+        }
+        return (finalBattleArray)
+    }
+    
+    func createNewArrayToSave(previousBattlesArray: [Character]?, currentFighters: [Character]) -> [String : [[String : Any]]] {
+        if let previousBattles = previousBattlesArray {
+            let finalBattlesArray = Array(Set(currentFighters + previousBattles))
+            return ["results": finalBattlesArray.toJSON()]
+        } else {
+            return ["results": currentFighters.toJSON()]
+        }
+    }
+}
+
+extension BattleArenaInteractor: RankingsGeneralProtocol {
+    func retrieveFromJsonFile(fileUrl: URL, completion: @escaping ([Character]?, Error?) -> [Character]?) -> [Character]? {
+        var battlesArray = [Character]()
+        // Read data from .json file and transform data into an array
+        do {
+            let data = try Data(contentsOf: fileUrl, options: [])
+            guard let results = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
+                return completion(nil, AppError.resourceLoadingError)
+            }
+            
+            if let fighters = results["results"] as? Array<Dictionary<String,AnyObject>> {
+                fighters.forEach { fighter in
+                    guard let character = Mapper<Character>().map(JSON: fighter) else {
+                        return
+                    }
+                    battlesArray.append(character)
+                }
+            }
+            return completion(battlesArray, nil)
+        } catch {
+            return completion(nil, AppError.resourceLoadingError)
+        }
     }
 }

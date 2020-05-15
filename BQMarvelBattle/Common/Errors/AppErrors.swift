@@ -1,0 +1,48 @@
+//
+//  AppErrors.swift
+//  BQMarvelBattle
+//
+//  Created by Tarsha De Souza on 14/05/2020.
+//  Copyright © 2020 Tarsha de Souza. All rights reserved.
+//
+
+import Foundation
+import Alamofire
+
+protocol CustomErrorProtocol {
+    var description: String { get }
+    var title: String { get }
+}
+
+enum AppError: CustomErrorProtocol, Error {
+    case dataParsingError(_ customDescription: String? = nil)
+    case resourceLoadingError
+    case genericError
+    case customError(description: String)
+    
+    var title: String {
+        switch self {
+        case .dataParsingError:
+            return "Error with data"
+        case .resourceLoadingError:
+            return "Oops loading error"
+        case .genericError:
+            return "Oops something went wrong"
+        case .customError(let description):
+            return description
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .dataParsingError:
+            return "Data wasnt parsed correctly"
+        case .resourceLoadingError:
+            return "Resource wasnt able to load properly"
+        case .genericError:
+            return "Try again later"
+        case .customError(let description):
+            return description
+        }
+    }
+}

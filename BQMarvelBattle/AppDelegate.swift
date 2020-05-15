@@ -12,9 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         AppDelegate.setupNavBarBehaviour()
         
@@ -22,20 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration{
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-
+        
     }
     
     static func setupNavBarBehaviour() {
         UINavigationBar.appearance().barTintColor = .white
         UINavigationBar.appearance().isTranslucent = false
-//        UINavigationBar.appearance().tintColor = .red
         UINavigationBar.appearance().shadowImage = UIImage()
         let navbarAttrs: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.red,
@@ -43,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         UINavigationBar.appearance().titleTextAttributes = navbarAttrs
     }
-
-
+    
+    
 }
 

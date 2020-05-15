@@ -16,6 +16,7 @@ protocol SearchCharactersRoutingLogic {
     func showCharacterDetail(with character: Character)
     func goToBattleArena()
     func goToFightBattle(with fighters: [Character])
+    func goToRankings()
     func presentBattlePopUp()
 }
 
@@ -57,7 +58,7 @@ class SearchCharactersRouter: NSObject, SearchCharactersRoutingLogic, SearchChar
             
             popUp.configurePopUp(text: "You have chosen your two fighters", buttonText: "I´m ready to battle")
             popUp.translatesAutoresizingMaskIntoConstraints = false
-
+            
             popUp.topAnchor.constraint(equalTo: SearchViewController.view.topAnchor)
                 .isActive = true
             popUp.leadingAnchor.constraint(equalTo: SearchViewController.view.leadingAnchor)
@@ -68,5 +69,11 @@ class SearchCharactersRouter: NSObject, SearchCharactersRoutingLogic, SearchChar
                 .isActive = true
             popUp.delegate = SearchViewController
         }
+    }
+    
+    func goToRankings() {
+        guard let SearchViewController = viewController else { return }
+        let rankingsVC = RankingsViewController()
+        SearchViewController.show(rankingsVC, sender: self)
     }
 }

@@ -15,6 +15,7 @@ import UIKit
 protocol BattleArenaRoutingLogic {
     func routeToSearchController()
     func presentWinnerPopUp(with winner: Character)
+    func goToRankings()
 }
 
 protocol BattleArenaDataPassing {
@@ -53,6 +54,13 @@ class BattleArenaRouter: NSObject, BattleArenaRoutingLogic, BattleArenaDataPassi
                 .isActive = true
             popUp.delegate = BattleArenaViewController
         }
+    }
+    
+    func goToRankings() {
+        guard let BattleArenaViewController = viewController else { return }
+        let rankingsVC = RankingsViewController()
+        rankingsVC.battleSummary = dataStore?.BattleSummary
+        BattleArenaViewController.navigationController?.pushViewController(rankingsVC, animated: true)
     }
     
 }

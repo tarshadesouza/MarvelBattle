@@ -20,6 +20,21 @@ struct Character {
     var url: [Url]?
 }
 
+struct Battles {
+    var battles: [Character]?
+}
+
+extension Battles: Mappable {
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        battles    <- map["results"]
+    }
+}
+
 extension Character: Mappable {
     
     init?(map: Map) {
@@ -39,7 +54,7 @@ extension Character: Mappable {
 }
 
 struct Comics: Mappable, Equatable {
- 
+    
     var items: [ComicsSummary]?
     var available: Int?
     
@@ -175,12 +190,12 @@ extension ThumbnailImage: Mappable {
     }
 }
 
-extension Character: Equatable {
+extension Character: Equatable,Hashable {
     static func == (lhs: Character, rhs: Character) -> Bool {
-        if lhs.name == rhs.name {
-            return true
-        } else {
-            return false
-        }
+        return lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
 }

@@ -37,14 +37,14 @@ class CharacterDetailViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .appPrimaryDarkest
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         setUpDetail()
     }
-
+    
     func setUpDetail() {
         guard let characterDetail = character else {
-            // TODO: Error Handling
+            self.presentAlert(withTitle: AppError.resourceLoadingError.title, message: AppError.resourceLoadingError.description)
             return
         }
         characterNameLbl.text = characterDetail.name

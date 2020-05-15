@@ -8,13 +8,13 @@
 
 import UIKit
 
-// MARk: Pop Up Delegate
+// MARK: Pop Up Delegate
 extension BattleArenaViewController: PopUpDelegate {
     func userDidTapGoOutButton() {
         
     }
     
     func userDidTapGoToButton() {
-        // TODO: go to rankings screen
+        self.router?.goToRankings()
     }
 }

@@ -16,15 +16,14 @@ enum Rankings {
     
     enum Model {
         struct Request {
-        
         }
         
         struct Response {
-       
+            var rankings: [Character]
         }
         
         struct ViewModel {
-        
+            var rankings: [Character]
         }
     }
 }

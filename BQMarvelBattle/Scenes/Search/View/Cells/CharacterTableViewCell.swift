@@ -9,7 +9,7 @@
 import UIKit
 
 class CharacterTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var characterName: UILabel! {
         didSet {
             characterName.font = .primaryLabel
@@ -38,19 +38,18 @@ class CharacterTableViewCell: UITableViewCell {
             containerView.backgroundColor = .appPrimaryDark
         }
     }
-
+    
     override func prepareForReuse() {
-         super.prepareForReuse()
-     }
+        super.prepareForReuse()
+    }
     
     static func height() -> CGFloat {
-          return 90
-      }
+        return 90
+    }
     
     func setUp(characterData: Character) {
         characterName.text = characterData.name
         characterDescription.text = characterData.description.isEmpty ? "No description" : characterData.description
         characterImage.download(image: characterData.thumbnail?.fullPath() ?? "")
     }
-
 }

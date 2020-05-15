@@ -12,57 +12,53 @@ import SwiftyJSON
 import ObjectMapper
 
 protocol Repository {
-    func retrieveData<T: Decodable>(path: String, completion: @escaping (T?, Error?) -> Void)
+    func retrieveAllCharacters(path: String, completion: @escaping ([Character]?, Error?) -> Void)
     func retrieveCharactersViaName(queryString: String, completion: @escaping ([Character]?, Error?) -> Void)
+    func handleResponse(with value: Any) -> [Character]?
 }
 
 /// Manages connection to the backend
 struct RemoteRepository: Repository {
     
-    func retrieveData<T>(path: String, completion: @escaping (T?, Error?) -> Void) where T : Decodable {
-        // TODO:alamofire call here
+    func retrieveAllCharacters<T>(path: String, completion: @escaping (T?, Error?) -> Void) {
     }
     
     func retrieveCharactersViaName(queryString: String, completion: @escaping ([Character]?, Error?) -> Void) {
         let queryObj = MarvelBattleEndPoints.retrieveCharactersViaName(queryString: queryString)
-        var characters = [Character]()
         
-        guard let request = try? queryObj.asURLRequest() else {
-            print("COULDNT MAKE REQUEST OBJ")
-            // TODO: ERROR HANDLING
+        guard let request = try? queryObj.asURLRequest() else {            
             return
         }
-
+        
         Alamofire.request(request).validate().responseJSON { (response) in
             switch response.result {
             case .success(let value) :
-                
-                if let jsonDict = value as? [String:AnyObject] {
-                    if let data = jsonDict["data"] as? [String:AnyObject] {
-                        if let results = data["results"] as?  Array<Dictionary<String,AnyObject>> {
-                            
-                            results.forEach { result in
-                                
-                                guard let character = Mapper<Character>().map(JSON: result) else {
-                                    // TODO: Error handling
-                                    completion(nil, nil)
-                                    return
-                                }
-                                
-                                // TODO: Finish mapping
-                                characters.append(character)
-                                print("this is the CHARACTER", character)
-                            }
-                            completion(characters, nil)
-                        }
-                    }
+                guard let characters = self.handleResponse(with: value) else {
+                    completion(nil, AppError.genericError)
+                    return
                 }
+                completion(characters, nil)
             case.failure(let error):
-                // TODO: ERROR HANDLING
-                print("ERROR API CALLED FAILED", error)
                 completion(nil, error)
             }
         }
     }
     
+    func handleResponse(with value: Any) -> [Character]? {
+        var characters = [Character]()
+        if let jsonDict = value as? [String:AnyObject] {
+            if let data = jsonDict["data"] as? [String:AnyObject] {
+                if let results = data["results"] as?  Array<Dictionary<String,AnyObject>> {
+                    results.forEach { result in
+                        guard let character = Mapper<Character>().map(JSON: result) else {
+                            return
+                        }
+                        characters.append(character)
+                    }
+                    return characters
+                }
+            }
+        }
+        return nil
+    }
 }

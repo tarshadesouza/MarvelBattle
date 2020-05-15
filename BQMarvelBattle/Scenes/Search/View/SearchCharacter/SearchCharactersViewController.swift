@@ -19,6 +19,7 @@ protocol SearchCharactersDelegate {
 
 protocol SearchCharactersDisplayLogic: class {
     func displayData(viewModel: SearchCharacters.Model.ViewModel)
+    func showError(error: AppError)
 }
 
 class SearchCharactersViewController: UIViewController, SearchCharactersDisplayLogic {
@@ -46,14 +47,21 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     var interactor: SearchCharactersBusinessLogic?
     var router: (NSObjectProtocol & SearchCharactersRoutingLogic & SearchCharactersDataPassing)?
     var characters: [Character]?
-    var isBattle = false
+    var battleArray = [Character]()
+    
+    var isBattle = false {
+        didSet {
+            tableDelegate?.isBattle = isBattle
+        }
+    }
+    
     var isEditingFighterList = false {
         didSet {
             if isEditingFighterList {
             }
         }
     }
-    var battleArray = [Character]()
+    
     var numberOfFighters: Int = 0 {
         didSet{
             if numberOfFighters == 2 {
@@ -77,6 +85,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         super.viewDidLoad()
         setupNavigationBar()
         setUpUI()
+        interactor?.searchAllCharacters()
         setupTableView(with: characters)
         tableView.reloadData()
     }
@@ -129,7 +138,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     }
     
     @objc func goToRankings() {
-        //        self.router?.popViewController(self)
+        self.router?.goToRankings()
     }
     
     func displayData(viewModel: SearchCharacters.Model.ViewModel) {
@@ -138,6 +147,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
         setupTableView(with: characters)
         tableView.reloadData()
+        battleArray = [Character]()
     }
     
     func isReadyToBattle() -> Bool {
@@ -146,10 +156,13 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
         return false
     }
+    
+    func showError(error: AppError) {
+        self.presentAlert(withTitle: error.title, message: error.description)
+    }
 }
 
 extension SearchCharactersViewController {
-    //Interaction
     func searchForCharacters(with name: String) {
         let request = SearchCharacters.Model.Request(characterName: name)
         interactor?.searchCharacterNames(request: request)

@@ -20,40 +20,40 @@ fileprivate struct MarvelAPIConfig {
 }
 
 enum MarvelBattleEndPoints {
-    case retrieveData
+    case retrieveLocalAllCharacters(path: String)
     case retrieveCharactersViaName(queryString: String)
 }
 
 extension MarvelBattleEndPoints {
-  
+    
     func authParameters() -> [String: String] {
-       return ["apikey": MarvelAPIConfig.apikey,
-               "ts": MarvelAPIConfig.ts,
-               "hash": MarvelAPIConfig.hash]
-   }
+        return ["apikey": MarvelAPIConfig.apikey,
+                "ts": MarvelAPIConfig.ts,
+                "hash": MarvelAPIConfig.hash]
+    }
     
     var httpMethod: HTTPMethod {
-       switch self {
-       case .retrieveData:
-           return .get
-       case .retrieveCharactersViaName:
-           return .get
-       }
-   }
+        switch self {
+        case .retrieveLocalAllCharacters:
+            return .get
+        case .retrieveCharactersViaName:
+            return .get
+        }
+    }
     
     var path: String {
-         switch self {
-         case .retrieveData:
-             return ""
-         case .retrieveCharactersViaName:
-             return "/v1/public/characters"
-         }
-     }
+        switch self {
+        case .retrieveLocalAllCharacters (let path):
+            return path
+        case .retrieveCharactersViaName:
+            return "/v1/public/characters"
+        }
+    }
     
     var baseURLString: String {
         switch self {
-        case .retrieveData:
-                return "https://gateway.marvel.com:443"
+        case .retrieveLocalAllCharacters:
+            return "https://gateway.marvel.com:443"
         case.retrieveCharactersViaName:
             return "https://gateway.marvel.com:443"
         }
@@ -61,23 +61,22 @@ extension MarvelBattleEndPoints {
     
     var params: [String: Any]? {
         switch self {
-        case .retrieveData:
+        case .retrieveLocalAllCharacters:
             return nil
         case .retrieveCharactersViaName(let query):
-           var params = ["nameStartsWith" : query]
-           params.merge(dict: authParameters())
+            var params = ["nameStartsWith" : query]
+            params.merge(dict: authParameters())
             return params
         }
     }
     
     public func asURLRequest() throws -> URLRequest {
-      let url = try baseURLString.asURL()
-      
-      var request = URLRequest(url: url.appendingPathComponent(path))
-      request.httpMethod = httpMethod.rawValue
-      request.timeoutInterval = TimeInterval(10 * 1000)
-      
-      return try URLEncoding.default.encode(request, with: params)
+        let url = try baseURLString.asURL()
+        
+        var request = URLRequest(url: url.appendingPathComponent(path))
+        request.httpMethod = httpMethod.rawValue
+        request.timeoutInterval = TimeInterval(10 * 1000)
+        
+        return try URLEncoding.default.encode(request, with: params)
     }
-    
 }

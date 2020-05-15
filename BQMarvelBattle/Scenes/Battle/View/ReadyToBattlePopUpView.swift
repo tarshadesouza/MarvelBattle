@@ -14,7 +14,7 @@ public protocol PopUpDelegate {
 }
 
 class ReadyToBattlePopUpView: UIView {
-
+    
     public var delegate : PopUpDelegate?
     
     @IBOutlet weak var thumbnail: UIImageView! {
@@ -65,7 +65,7 @@ class ReadyToBattlePopUpView: UIView {
     public func configurePopUp(with image: String? = nil, text: String, buttonText: String) {
         readyToBattleLabel.text = text
         readyToBattleButton.setTitle(buttonText, for: .normal)
-
+        
         if let chosenImage = image {
             thumbnail.download(image: chosenImage)
         }
@@ -79,5 +79,4 @@ class ReadyToBattlePopUpView: UIView {
         delegate?.userDidTapGoOutButton()
         self.removeFromSuperview()
     }
-    
 }

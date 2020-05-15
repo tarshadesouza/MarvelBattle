@@ -13,9 +13,8 @@ extension SearchCharactersViewController: SearchCharactersDelegate {
     
     func didSelectCharacter(at index: IndexPath) {
         searchBar.resignFirstResponder()
-        
         guard let character = characters?[index.row] else {
-            // TODO: Error handling
+            self.presentAlert(withTitle: AppError.genericError.description, message: "Try again later")
             return
         }
         
@@ -29,10 +28,9 @@ extension SearchCharactersViewController: SearchCharactersDelegate {
     
     func didDeSelectCharacter(at index: IndexPath) {
         guard let character = characters?[index.row] else {
-            // TODO: Error handling
+            self.presentAlert(withTitle: AppError.genericError.description, message: "Try again later")
             return
         }
-        
         if let index = battleArray.firstIndex(of: character) {
             battleArray.remove(at: index)
         }
@@ -47,10 +45,6 @@ extension SearchCharactersViewController: UISearchBarDelegate {
         guard let keySearch = searchBar.text else {return}
         searchBar.endEditing(true)
         searchForCharacters(with: keySearch)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
     }
 }
 
