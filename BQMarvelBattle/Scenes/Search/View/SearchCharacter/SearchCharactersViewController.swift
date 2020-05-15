@@ -40,7 +40,11 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
     }
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.backgroundColor = .appPrimaryDark
+        }
+    }
     
     var tableDatasource: SearchCharacterDatasource?
     var tableDelegate: SearchCharacterTableDelegate?
@@ -127,8 +131,8 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
                                                 style: .done,
                                                 target: self,
                                                 action: #selector(SearchCharactersViewController.goToBattleArena))
-        rankingButton.tintColor = .systemRed
-        battleArenaButton.tintColor = .systemBlue
+        rankingButton.tintColor = .systemYellow
+        battleArenaButton.tintColor = .appAccent
         self.setRightButton([rankingButton,battleArenaButton])
         self.setTitle("Character Search")
     }

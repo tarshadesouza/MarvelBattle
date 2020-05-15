@@ -30,12 +30,12 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
         let nameQuery = request.characterName
         repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results, error) in
             guard error == nil else {
-                self.presenter?.showError(with: AppError.resourceLoadingError)
+                self.presenter?.showError(with: AppError.notFoundError)
                 return
             }
-            
+
             guard let characters = results else {
-                self.presenter?.showError(with: AppError.resourceLoadingError)
+                self.presenter?.showError(with: AppError.notFoundError)
                 return
             }
             let response = SearchCharacters.Model.Response(characters: characters)

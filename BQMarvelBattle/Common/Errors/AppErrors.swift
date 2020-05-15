@@ -18,6 +18,7 @@ enum AppError: CustomErrorProtocol, Error {
     case dataParsingError(_ customDescription: String? = nil)
     case resourceLoadingError
     case genericError
+    case notFoundError
     case customError(description: String)
     
     var title: String {
@@ -28,6 +29,8 @@ enum AppError: CustomErrorProtocol, Error {
             return "Oops loading error"
         case .genericError:
             return "Oops something went wrong"
+        case .notFoundError:
+            return "Not Found"
         case .customError(let description):
             return description
         }
@@ -41,6 +44,8 @@ enum AppError: CustomErrorProtocol, Error {
             return "Resource wasnt able to load properly"
         case .genericError:
             return "Try again later"
+        case .notFoundError:
+            return "No character found with that name"
         case .customError(let description):
             return description
         }

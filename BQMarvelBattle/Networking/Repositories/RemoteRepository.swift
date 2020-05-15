@@ -26,10 +26,10 @@ struct RemoteRepository: Repository {
     func retrieveCharactersViaName(queryString: String, completion: @escaping ([Character]?, Error?) -> Void) {
         let queryObj = MarvelBattleEndPoints.retrieveCharactersViaName(queryString: queryString)
         
-        guard let request = try? queryObj.asURLRequest() else {            
+        guard let request = try? queryObj.asURLRequest() else {
             return
         }
-        
+     
         Alamofire.request(request).validate().responseJSON { (response) in
             switch response.result {
             case .success(let value) :
@@ -55,7 +55,11 @@ struct RemoteRepository: Repository {
                         }
                         characters.append(character)
                     }
-                    return characters
+                    if !characters.isEmpty {
+                        return characters
+                    } else {
+                        return nil
+                    }
                 }
             }
         }
