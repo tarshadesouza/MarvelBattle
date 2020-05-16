@@ -52,7 +52,6 @@ class BattleArenaInteractor: BattleArenaBusinessLogic, BattleArenaDataStore {
             return (nil)
         }
         let fileUrl = documentDirectoryUrl.appendingPathComponent("BattleChallenges.json")
-        let fileManager = FileManager.default
         let fileExists = (try? fileUrl.checkResourceIsReachable()) ?? false
         if !fileExists {
             //if its the first time lets write to it-

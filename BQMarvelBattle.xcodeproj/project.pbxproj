@@ -23,8 +23,18 @@
 		C17F5A592469B52500049729 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A582469B52500049729 /* DictionaryExtension.swift */; };
 		C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */; };
 		C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */; };
+		C19B345524700F0A00CE4D24 /* BattleArenaViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B345424700F0A00CE4D24 /* BattleArenaViewControllerTests.swift */; };
 		C1A64FDA246EAF15005A4A7F /* RankingsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A64FD9246EAF15005A4A7F /* RankingsViewController+Delegates.swift */; };
 		C1A64FDC246EB0B0005A4A7F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A64FDB246EB0B0005A4A7F /* UIViewControllerExtension.swift */; };
+		C1A65081246EF592005A4A7F /* BQMarvelBattleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65080246EF592005A4A7F /* BQMarvelBattleTests.swift */; };
+		C1A65088246EF59D005A4A7F /* MockBattleArenaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65078246EF4EF005A4A7F /* MockBattleArenaInteractor.swift */; };
+		C1A6508B246EF6D8005A4A7F /* BattleArenaInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6508A246EF6D8005A4A7F /* BattleArenaInteractorTests.swift */; };
+		C1A6508D246EF7D6005A4A7F /* MockBattleArenaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6508C246EF7D6005A4A7F /* MockBattleArenaPresenter.swift */; };
+		C1A6508F246EF8C6005A4A7F /* MockBattleArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6508E246EF8C6005A4A7F /* MockBattleArenaViewController.swift */; };
+		C1A65091246EFB39005A4A7F /* mockCharacter.json in Resources */ = {isa = PBXBuildFile; fileRef = C1A65090246EFB39005A4A7F /* mockCharacter.json */; };
+		C1A65093246F0837005A4A7F /* BattleArenaPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65092246F0836005A4A7F /* BattleArenaPresenterTests.swift */; };
+		C1A65095246F1013005A4A7F /* MockSearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65094246F1013005A4A7F /* MockSearchCharactersViewController.swift */; };
+		C1A65097246F106E005A4A7F /* MockSearchCharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65096246F106E005A4A7F /* MockSearchCharacterPresenter.swift */; };
 		C1AA8D7A2466B4EE00E9B7FC /* BattleArenaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */; };
 		C1AA8D7C2466B4EE00E9B7FC /* BattleArenaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */; };
 		C1AA8D7D2466B4EE00E9B7FC /* BattleArenaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */; };
@@ -66,6 +76,16 @@
 		C1E9484F246B0DBA0076261E /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9484E246B0DBA0076261E /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C1A65083246EF592005A4A7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C179CFC02465DCBB00B6AE62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C179CFC72465DCBB00B6AE62;
+			remoteInfo = BQMarvelBattle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6E0FDD6B1A4780336B9CEC88 /* Pods_BQMarvelBattle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BQMarvelBattle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B232D2801F411E25AA4DB44D /* Pods-BQMarvelBattle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BQMarvelBattle.release.xcconfig"; path = "Target Support Files/Pods-BQMarvelBattle/Pods-BQMarvelBattle.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,8 +106,20 @@
 		C17F5A582469B52500049729 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDatasource.swift; sourceTree = "<group>"; };
 		C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDatasource.swift; sourceTree = "<group>"; };
+		C19B345424700F0A00CE4D24 /* BattleArenaViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaViewControllerTests.swift; sourceTree = "<group>"; };
 		C1A64FD9246EAF15005A4A7F /* RankingsViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RankingsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		C1A64FDB246EB0B0005A4A7F /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		C1A65078246EF4EF005A4A7F /* MockBattleArenaInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBattleArenaInteractor.swift; sourceTree = "<group>"; };
+		C1A6507E246EF592005A4A7F /* BQMarvelBattleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BQMarvelBattleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1A65080246EF592005A4A7F /* BQMarvelBattleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BQMarvelBattleTests.swift; sourceTree = "<group>"; };
+		C1A65082246EF592005A4A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1A6508A246EF6D8005A4A7F /* BattleArenaInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaInteractorTests.swift; sourceTree = "<group>"; };
+		C1A6508C246EF7D6005A4A7F /* MockBattleArenaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBattleArenaPresenter.swift; sourceTree = "<group>"; };
+		C1A6508E246EF8C6005A4A7F /* MockBattleArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBattleArenaViewController.swift; sourceTree = "<group>"; };
+		C1A65090246EFB39005A4A7F /* mockCharacter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockCharacter.json; sourceTree = "<group>"; };
+		C1A65092246F0836005A4A7F /* BattleArenaPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaPresenterTests.swift; sourceTree = "<group>"; };
+		C1A65094246F1013005A4A7F /* MockSearchCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchCharactersViewController.swift; sourceTree = "<group>"; };
+		C1A65096246F106E005A4A7F /* MockSearchCharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchCharacterPresenter.swift; sourceTree = "<group>"; };
 		C1AA8D742466B4EE00E9B7FC /* BattleArenaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaPresenter.swift; sourceTree = "<group>"; };
 		C1AA8D762466B4EE00E9B7FC /* BattleArenaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaRouter.swift; sourceTree = "<group>"; };
 		C1AA8D772466B4EE00E9B7FC /* BattleArenaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaModels.swift; sourceTree = "<group>"; };
@@ -136,6 +168,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BB926EDFABD6B0F16ECA3C2 /* Pods_BQMarvelBattle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1A6507B246EF592005A4A7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				C179CFCA2465DCBB00B6AE62 /* BQMarvelBattle */,
+				C1A6507F246EF592005A4A7F /* BQMarvelBattleTests */,
 				C179CFC92465DCBB00B6AE62 /* Products */,
 				DF2F6F5BF94B7365DD7A3C4A /* Pods */,
 				4E4EE9CF722CB0B869BE17E9 /* Frameworks */,
@@ -257,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				C179CFC82465DCBB00B6AE62 /* BQMarvelBattle.app */,
+				C1A6507E246EF592005A4A7F /* BQMarvelBattleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +305,7 @@
 		C179CFCA2465DCBB00B6AE62 /* BQMarvelBattle */ = {
 			isa = PBXGroup;
 			children = (
+				C1A65073246EF49F005A4A7F /* Tests */,
 				C1AEB5C8246C6AEC0006F1F3 /* Resources */,
 				C1AA8DA42466D9DA00E9B7FC /* Common */,
 				C1AA8D9A2466B9C500E9B7FC /* Networking */,
@@ -299,6 +341,87 @@
 				C1E945EB246A8B900076261E /* ResusableView.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		C19B34EC24701C2600CE4D24 /* BattleArena */ = {
+			isa = PBXGroup;
+			children = (
+				C19B345424700F0A00CE4D24 /* BattleArenaViewControllerTests.swift */,
+				C1A65092246F0836005A4A7F /* BattleArenaPresenterTests.swift */,
+				C1A6508A246EF6D8005A4A7F /* BattleArenaInteractorTests.swift */,
+			);
+			path = BattleArena;
+			sourceTree = "<group>";
+		};
+		C19B34ED24701C3400CE4D24 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C1A65073246EF49F005A4A7F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C1A65089246EF69A005A4A7F /* UnitTests */,
+				C1A65074246EF4B8005A4A7F /* Mocks */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C1A65074246EF4B8005A4A7F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C1A65077246EF4CD005A4A7F /* Rankings */,
+				C1A65076246EF4C5005A4A7F /* SearchCharacters */,
+				C1A65075246EF4BD005A4A7F /* BattleArena */,
+				C1A65090246EFB39005A4A7F /* mockCharacter.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C1A65075246EF4BD005A4A7F /* BattleArena */ = {
+			isa = PBXGroup;
+			children = (
+				C1A65078246EF4EF005A4A7F /* MockBattleArenaInteractor.swift */,
+				C1A6508C246EF7D6005A4A7F /* MockBattleArenaPresenter.swift */,
+				C1A6508E246EF8C6005A4A7F /* MockBattleArenaViewController.swift */,
+			);
+			path = BattleArena;
+			sourceTree = "<group>";
+		};
+		C1A65076246EF4C5005A4A7F /* SearchCharacters */ = {
+			isa = PBXGroup;
+			children = (
+				C1A65094246F1013005A4A7F /* MockSearchCharactersViewController.swift */,
+				C1A65096246F106E005A4A7F /* MockSearchCharacterPresenter.swift */,
+			);
+			path = SearchCharacters;
+			sourceTree = "<group>";
+		};
+		C1A65077246EF4CD005A4A7F /* Rankings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rankings;
+			sourceTree = "<group>";
+		};
+		C1A6507F246EF592005A4A7F /* BQMarvelBattleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1A65080246EF592005A4A7F /* BQMarvelBattleTests.swift */,
+				C1A65082246EF592005A4A7F /* Info.plist */,
+			);
+			path = BQMarvelBattleTests;
+			sourceTree = "<group>";
+		};
+		C1A65089246EF69A005A4A7F /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				C19B34ED24701C3400CE4D24 /* Search */,
+				C19B34EC24701C2600CE4D24 /* BattleArena */,
+			);
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 		C1AA8D612466A7D400E9B7FC /* Scenes */ = {
@@ -567,6 +690,24 @@
 			productReference = C179CFC82465DCBB00B6AE62 /* BQMarvelBattle.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C1A6507D246EF592005A4A7F /* BQMarvelBattleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1A65085246EF592005A4A7F /* Build configuration list for PBXNativeTarget "BQMarvelBattleTests" */;
+			buildPhases = (
+				C1A6507A246EF592005A4A7F /* Sources */,
+				C1A6507B246EF592005A4A7F /* Frameworks */,
+				C1A6507C246EF592005A4A7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1A65084246EF592005A4A7F /* PBXTargetDependency */,
+			);
+			name = BQMarvelBattleTests;
+			productName = BQMarvelBattleTests;
+			productReference = C1A6507E246EF592005A4A7F /* BQMarvelBattleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -579,6 +720,10 @@
 				TargetAttributes = {
 					C179CFC72465DCBB00B6AE62 = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					C1A6507D246EF592005A4A7F = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = C179CFC72465DCBB00B6AE62;
 					};
 				};
 			};
@@ -596,6 +741,7 @@
 			projectRoot = "";
 			targets = (
 				C179CFC72465DCBB00B6AE62 /* BQMarvelBattle */,
+				C1A6507D246EF592005A4A7F /* BQMarvelBattleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -609,12 +755,20 @@
 				C1AA8DA32466D79D00E9B7FC /* SearchCharactersViewController.xib in Resources */,
 				C179CFD82465DCBC00B6AE62 /* LaunchScreen.storyboard in Resources */,
 				C1D7C31A246D5CA6003BB863 /* characters.json in Resources */,
+				C1A65091246EFB39005A4A7F /* mockCharacter.json in Resources */,
 				C179CFD52465DCBC00B6AE62 /* Assets.xcassets in Resources */,
 				C1E9483D246AF2FC0076261E /* CharacterDetailViewController.xib in Resources */,
 				C1E94848246B038B0076261E /* BattleArenaViewController.xib in Resources */,
 				C1E94455246A7E450076261E /* CharacterTableViewCell.xib in Resources */,
 				C14694F8246BCD9B00602E03 /* ReadyToBattlePopUpView.xib in Resources */,
 				C133AFF0246C654500F93040 /* RankingsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1A6507C246EF592005A4A7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +870,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1A6507A246EF592005A4A7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1A65093246F0837005A4A7F /* BattleArenaPresenterTests.swift in Sources */,
+				C1A65088246EF59D005A4A7F /* MockBattleArenaInteractor.swift in Sources */,
+				C1A65097246F106E005A4A7F /* MockSearchCharacterPresenter.swift in Sources */,
+				C1A65081246EF592005A4A7F /* BQMarvelBattleTests.swift in Sources */,
+				C1A6508D246EF7D6005A4A7F /* MockBattleArenaPresenter.swift in Sources */,
+				C1A6508B246EF6D8005A4A7F /* BattleArenaInteractorTests.swift in Sources */,
+				C19B345524700F0A00CE4D24 /* BattleArenaViewControllerTests.swift in Sources */,
+				C1A6508F246EF8C6005A4A7F /* MockBattleArenaViewController.swift in Sources */,
+				C1A65095246F1013005A4A7F /* MockSearchCharactersViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1A65084246EF592005A4A7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C179CFC72465DCBB00B6AE62 /* BQMarvelBattle */;
+			targetProxy = C1A65083246EF592005A4A7F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C179CFD62465DCBC00B6AE62 /* LaunchScreen.storyboard */ = {
@@ -882,6 +1060,46 @@
 			};
 			name = Release;
 		};
+		C1A65086246EF592005A4A7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 882HGE2Q5Y;
+				INFOPLIST_FILE = BQMarvelBattleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TarshaDeSouza.BQMarvelBattleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BQMarvelBattle.app/BQMarvelBattle";
+			};
+			name = Debug;
+		};
+		C1A65087246EF592005A4A7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 882HGE2Q5Y;
+				INFOPLIST_FILE = BQMarvelBattleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TarshaDeSouza.BQMarvelBattleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BQMarvelBattle.app/BQMarvelBattle";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -899,6 +1117,15 @@
 			buildConfigurations = (
 				C179CFDD2465DCBC00B6AE62 /* Debug */,
 				C179CFDE2465DCBC00B6AE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1A65085246EF592005A4A7F /* Build configuration list for PBXNativeTarget "BQMarvelBattleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1A65086246EF592005A4A7F /* Debug */,
+				C1A65087246EF592005A4A7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

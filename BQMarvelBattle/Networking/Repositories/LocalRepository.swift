@@ -17,7 +17,6 @@ enum Result<T> {
 struct LocalRepository : Repository {
     
     func retrieveAllCharacters(path: String, completion: @escaping ([Character]?, Error?) -> Void) {
-        print("LOCAL REPO WAS CALLED")
         let queryObj = MarvelBattleEndPoints.retrieveLocalAllCharacters(path: path)
         let result = loadLocalJSONFile(forEndpoint: queryObj)
         switch result {
