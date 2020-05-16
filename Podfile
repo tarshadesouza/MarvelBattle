@@ -13,15 +13,11 @@ target 'BQMarvelBattle' do
       "MarvelPrivateKey"
     ]}
 
-
   # Pods for BQMarvelBattle
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'ObjectMapper'
   pod 'CryptoSwift'
-  pod 'AlamofireObjectMapper'
   pod 'Kingfisher'
 
-
 end
-
