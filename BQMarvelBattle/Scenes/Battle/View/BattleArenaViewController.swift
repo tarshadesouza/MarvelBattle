@@ -46,6 +46,15 @@ class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
             battleButton.backgroundColor = .appAccent
         }
     }
+    @IBOutlet weak var finishBattleButton: RoundButton! {
+        didSet {
+            finishBattleButton.setTitle("End Battles", for: .normal)
+            finishBattleButton.titleLabel?.font = .appButton
+            finishBattleButton.setTitleColor(.white, for: .normal)
+            finishBattleButton.backgroundColor = .appAccent
+        }
+    }
+    
     @IBOutlet weak var dashedLine: DashedLineView!
     
     var interactor: BattleArenaBusinessLogic?
@@ -120,11 +129,16 @@ class BattleArenaViewController: UIViewController, BattleArenaDisplayLogic {
     
     @IBAction func battleButtonPressed(_ sender: UIButton) {
         guard let _ = fighters else {
-            self.router?.routeToSearchController()
+            self.router?.routeToSearchController(isBattle: true)
             return
         }
         getWinner()
     }
+    
+    @IBAction func finishBattleButtonPressed(_ sender: UIButton) {
+        self.router?.routeToSearchController(isBattle: false)
+    }
+    
 }
 
 extension BattleArenaViewController {

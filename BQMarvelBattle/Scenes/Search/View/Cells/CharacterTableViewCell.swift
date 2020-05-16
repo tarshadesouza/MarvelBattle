@@ -41,6 +41,8 @@ class CharacterTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.isSelected = false
+        containerView.backgroundColor = .appPrimaryDark
     }
     
     static func height() -> CGFloat {

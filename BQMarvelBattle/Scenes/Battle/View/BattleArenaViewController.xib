@@ -12,6 +12,7 @@
                 <outlet property="battleArenaContainer" destination="nJe-ma-xw0" id="9lO-ot-HwC"/>
                 <outlet property="battleButton" destination="vfN-14-Rp6" id="EhU-dv-evM"/>
                 <outlet property="dashedLine" destination="dXL-Dx-JSp" id="HSJ-Bt-OrM"/>
+                <outlet property="finishBattleButton" destination="hQU-eL-GgH" id="wRt-5F-BdH"/>
                 <outlet property="firstOpponentView" destination="zHu-SQ-GFc" id="T4k-Uh-n4R"/>
                 <outlet property="secondOpponentView" destination="xzt-MD-oid" id="fCU-sD-tMc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1vW-Bc-LFV"/>
@@ -62,28 +63,52 @@
                         <constraint firstItem="dXL-Dx-JSp" firstAttribute="top" secondItem="nJe-ma-xw0" secondAttribute="top" constant="27.5" id="h4T-hL-v0Z"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfN-14-Rp6" customClass="RoundButton" customModule="BQMarvelBattle" customModuleProvider="target">
-                    <rect key="frame" x="20" y="667" width="374" height="56"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="15"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="battleButtonPressed:" destination="-1" eventType="touchUpInside" id="lzb-Zm-x9Q"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-5f-Bke">
+                    <rect key="frame" x="20" y="667" width="374" height="109"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfN-14-Rp6" customClass="RoundButton" customModule="BQMarvelBattle" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="374" id="hmH-bp-8SW"/>
+                                <constraint firstAttribute="height" constant="45" id="tQQ-oZ-cao"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="battleButtonPressed:" destination="-1" eventType="touchUpInside" id="lzb-Zm-x9Q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-eL-GgH" customClass="RoundButton" customModule="BQMarvelBattle" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="374" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="374" id="CNF-H2-k6O"/>
+                                <constraint firstAttribute="height" constant="45" id="Pcy-JX-SQm"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="finishBattleButtonPressed:" destination="-1" eventType="touchUpInside" id="iE6-A7-MDV"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vfN-14-Rp6" firstAttribute="top" secondItem="nJe-ma-xw0" secondAttribute="bottom" constant="25" id="LqT-Ox-Iyy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nJe-ma-xw0" secondAttribute="bottom" constant="220" id="PUn-45-3am"/>
-                <constraint firstItem="vfN-14-Rp6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="YLP-7r-a1U"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vfN-14-Rp6" secondAttribute="bottom" constant="139" id="dbE-JH-vJP"/>
                 <constraint firstItem="nJe-ma-xw0" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gNf-c4-jT3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vfN-14-Rp6" secondAttribute="trailing" constant="20" id="lUY-n2-VJ0"/>
+                <constraint firstItem="ZY0-5f-Bke" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="pa4-eV-R2S"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZY0-5f-Bke" secondAttribute="bottom" constant="86" id="qVL-kd-bZd"/>
                 <constraint firstItem="nJe-ma-xw0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="rXQ-Kd-usb"/>
+                <constraint firstItem="ZY0-5f-Bke" firstAttribute="top" secondItem="nJe-ma-xw0" secondAttribute="bottom" constant="25" id="tv6-be-QIE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZY0-5f-Bke" secondAttribute="trailing" constant="20" id="vhP-bE-q6o"/>
                 <constraint firstItem="nJe-ma-xw0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zVu-0i-VIg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

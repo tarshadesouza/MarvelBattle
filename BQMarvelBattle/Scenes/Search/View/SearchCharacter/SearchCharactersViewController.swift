@@ -61,7 +61,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     
     var numberOfFighters: Int = 0 {
         didSet{
-            if numberOfFighters == 2 {
+            if numberOfFighters == 2 && isBattle == true {
                 numberOfFighters = 0
                 self.router?.presentBattlePopUp()
             }
@@ -85,6 +85,11 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         interactor?.searchAllCharacters()
         setupTableView(with: characters)
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetNoBattleTableView()
     }
     
     private func setup() {
@@ -111,6 +116,19 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     private func setUpUI() {
         searchBar.delegate = self
         self.view.backgroundColor = .appPrimaryDark
+    }
+    
+    private func resetNoBattleTableView() {
+        if isBattle == false {
+            //remove pop up
+            for view in view.subviews  where view is ReadyToBattlePopUpView{
+                view.removeFromSuperview()
+            }
+            if let index = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRow(at: index, animated: true)
+            }
+            tableView.reloadData()
+        }
     }
     
     func setupNavigationBar() {

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol BattleArenaRoutingLogic {
-    func routeToSearchController()
+    func routeToSearchController(isBattle: Bool)
     func presentWinnerPopUp(with winner: Character)
     func goToRankings()
 }
@@ -26,10 +26,10 @@ class BattleArenaRouter: NSObject, BattleArenaRoutingLogic, BattleArenaDataPassi
     weak var viewController: BattleArenaViewController?
     var dataStore: BattleArenaDataStore?
     
-    func routeToSearchController() {
+    func routeToSearchController(isBattle: Bool) {
         guard let BattleArenaViewController = viewController else { return }
         let searchViewController = BattleArenaViewController.navigationController?.viewControllers[0] as! SearchCharactersViewController
-        searchViewController.isBattle = true
+        searchViewController.isBattle = isBattle
         BattleArenaViewController.navigationController?.popToRootViewController(animated: true)
     }
     

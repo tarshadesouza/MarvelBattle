@@ -64,6 +64,7 @@ class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
         if isBattle && selectedIndexPaths?.count ?? 0 <= 2 {
             if let cell = tableView.cellForRow(at: indexPath) as? CharacterTableViewCell {
                 cell.contentView.backgroundColor = .appAccent
+                cell.isSelected = true
             }
             delegate.didSelectCharacter(at: indexPath)
         } else {
@@ -77,4 +78,5 @@ class SearchCharacterTableDelegate: NSObject, UITableViewDelegate {
             delegate.didDeSelectCharacter(at: indexPath)
         }
     }
+    
 }
