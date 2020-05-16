@@ -36,6 +36,7 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .appPrimaryDarkest
+        self.navigationController?.navigationBar.tintColor = .appAccent
     }
     
     override func viewDidAppear(_ animated: Bool) {
