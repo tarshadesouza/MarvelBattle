@@ -59,13 +59,6 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         }
     }
     
-    var isEditingFighterList = false {
-        didSet {
-            if isEditingFighterList {
-            }
-        }
-    }
-    
     var numberOfFighters: Int = 0 {
         didSet{
             if numberOfFighters == 2 {
@@ -152,13 +145,6 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
         setupTableView(with: characters)
         tableView.reloadData()
         battleArray = [Character]()
-    }
-    
-    func isReadyToBattle() -> Bool {
-        if isEditingFighterList {
-            return true
-        }
-        return false
     }
     
     func showError(error: AppError) {

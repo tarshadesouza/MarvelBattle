@@ -19,6 +19,7 @@ enum AppError: CustomErrorProtocol, Error {
     case resourceLoadingError
     case genericError
     case notFoundError
+    case noConnection
     case customError(description: String)
     
     var title: String {
@@ -31,6 +32,8 @@ enum AppError: CustomErrorProtocol, Error {
             return "Oops something went wrong"
         case .notFoundError:
             return "Not Found"
+        case .noConnection:
+            return "No Connection"
         case .customError(let description):
             return description
         }
@@ -46,6 +49,8 @@ enum AppError: CustomErrorProtocol, Error {
             return "Try again later"
         case .notFoundError:
             return "No character found with that name"
+        case .noConnection:
+            return "It seems you have no wifi connection try reconnect"
         case .customError(let description):
             return description
         }

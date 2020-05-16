@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import Alamofire
 
 protocol SearchCharactersBusinessLogic {
     func searchCharacterNames(request: SearchCharacters.Model.Request)
@@ -25,25 +24,29 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
     var presenter: SearchCharactersPresentationLogic?
     var repository: Repository?
     
-    func searchCharacterNames(request: SearchCharacters.Model.Request) {
+    internal func searchCharacterNames(request: SearchCharacters.Model.Request) {
         repository = RemoteRepository()
         let nameQuery = request.characterName
-        repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results, error) in
-            guard error == nil else {
-                self.presenter?.showError(with: AppError.notFoundError)
-                return
-            }
-
-            guard let characters = results else {
-                self.presenter?.showError(with: AppError.notFoundError)
-                return
-            }
-            let response = SearchCharacters.Model.Response(characters: characters)
-            self.presenter?.presentSearchResults(response: response)
-        })
+        if Connectivity.isConnectedToInternet() {
+            repository?.retrieveCharactersViaName(queryString: nameQuery, completion: { (results, error) in
+                guard error == nil else {
+                    self.presenter?.showError(with: AppError.notFoundError)
+                    return
+                }
+                
+                guard let characters = results else {
+                    self.presenter?.showError(with: AppError.notFoundError)
+                    return
+                }
+                let response = SearchCharacters.Model.Response(characters: characters)
+                self.presenter?.presentSearchResults(response: response)
+            })
+        } else {
+            self.presenter?.showError(with: AppError.noConnection)
+        }
     }
     
-    func searchAllCharacters() {
+    internal func searchAllCharacters() {
         repository = LocalRepository()
         repository?.retrieveAllCharacters(path: "characters", completion: { (characters: [Character]?, error) in
             guard error == nil else {
@@ -61,8 +64,3 @@ class SearchCharactersInteractor: SearchCharactersBusinessLogic, SearchCharacter
     }
 }
 
-class Connectivity {
-    class func isConnectedToInternet() -> Bool {
-        return NetworkReachabilityManager()?.isReachable ?? false
-    }
-}

@@ -52,13 +52,14 @@ class BattleArenaViewControllerTests: XCTestCase {
     }
     
     func test_getWinner() {
-        //G
+        //Given
         let fighters = getMockCharacters()
         battleArenaViewController.fighters = fighters
-        //W
+        
+        //When
         battleArenaViewController.getWinner()
         
-        //T
+        //Then
         XCTAssertTrue(mockInteractor.winnerIsDetermined, "Interactor was not reached")
         XCTAssertNotNil(mockInteractor.fighterRequests, "Nothing was sent in request.")
     }

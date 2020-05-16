@@ -12,11 +12,17 @@ import XCTest
 
 class MockSearchCharactersViewController: SearchCharactersDisplayLogic {
     
+    var isDataDisplayed = false
+    var displayedData = [Character]()
     func displayData(viewModel: SearchCharacters.Model.ViewModel) {
-        
+        isDataDisplayed = true
+        displayedData = viewModel.characters ?? [Character]()
     }
     
+    var isErrorShown = false
+    var appError = AppError.genericError
     func showError(error: AppError) {
-        
+        isErrorShown = true
+        appError = error
     }
 }

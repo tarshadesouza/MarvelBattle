@@ -24,6 +24,11 @@
 		C17F5A5C2469B5E700049729 /* ItemsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */; };
 		C17F5A5F2469B6A100049729 /* SearchCharacterDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */; };
 		C19B345524700F0A00CE4D24 /* BattleArenaViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B345424700F0A00CE4D24 /* BattleArenaViewControllerTests.swift */; };
+		C19B34EF24701C9500CE4D24 /* MockSearchCharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B34EE24701C9400CE4D24 /* MockSearchCharactersInteractor.swift */; };
+		C19B34F124701D2200CE4D24 /* SearchCharactersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B34F024701D2200CE4D24 /* SearchCharactersInteractorTests.swift */; };
+		C19B3592247026C300CE4D24 /* UnitTestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B3590247026AA00CE4D24 /* UnitTestExtension.swift */; };
+		C19B359524702AFB00CE4D24 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B359424702AFB00CE4D24 /* Connectivity.swift */; };
+		C19B35972470305C00CE4D24 /* SearchCharactersPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B35962470305C00CE4D24 /* SearchCharactersPresenterTests.swift */; };
 		C1A64FDA246EAF15005A4A7F /* RankingsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A64FD9246EAF15005A4A7F /* RankingsViewController+Delegates.swift */; };
 		C1A64FDC246EB0B0005A4A7F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A64FDB246EB0B0005A4A7F /* UIViewControllerExtension.swift */; };
 		C1A65081246EF592005A4A7F /* BQMarvelBattleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A65080246EF592005A4A7F /* BQMarvelBattleTests.swift */; };
@@ -107,6 +112,11 @@
 		C17F5A5B2469B5E700049729 /* ItemsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDatasource.swift; sourceTree = "<group>"; };
 		C17F5A5E2469B6A100049729 /* SearchCharacterDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharacterDatasource.swift; sourceTree = "<group>"; };
 		C19B345424700F0A00CE4D24 /* BattleArenaViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleArenaViewControllerTests.swift; sourceTree = "<group>"; };
+		C19B34EE24701C9400CE4D24 /* MockSearchCharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchCharactersInteractor.swift; sourceTree = "<group>"; };
+		C19B34F024701D2200CE4D24 /* SearchCharactersInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersInteractorTests.swift; sourceTree = "<group>"; };
+		C19B3590247026AA00CE4D24 /* UnitTestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestExtension.swift; sourceTree = "<group>"; };
+		C19B359424702AFB00CE4D24 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		C19B35962470305C00CE4D24 /* SearchCharactersPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersPresenterTests.swift; sourceTree = "<group>"; };
 		C1A64FD9246EAF15005A4A7F /* RankingsViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RankingsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		C1A64FDB246EB0B0005A4A7F /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C1A65078246EF4EF005A4A7F /* MockBattleArenaInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBattleArenaInteractor.swift; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 		C10D27982468147C0016BDC2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C19B358F2470269000CE4D24 /* UnitTestExtensions */,
 				C17F5A582469B52500049729 /* DictionaryExtension.swift */,
 				C1E94456246A841C0076261E /* TableViewExtension.swift */,
 				C1E94458246A843A0076261E /* NibExtension.swift */,
@@ -356,8 +367,26 @@
 		C19B34ED24701C3400CE4D24 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				C19B34F024701D2200CE4D24 /* SearchCharactersInteractorTests.swift */,
+				C19B35962470305C00CE4D24 /* SearchCharactersPresenterTests.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C19B358F2470269000CE4D24 /* UnitTestExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C19B3590247026AA00CE4D24 /* UnitTestExtension.swift */,
+			);
+			path = UnitTestExtensions;
+			sourceTree = "<group>";
+		};
+		C19B359324702AE900CE4D24 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C19B359424702AFB00CE4D24 /* Connectivity.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		C1A65073246EF49F005A4A7F /* Tests */ = {
@@ -395,6 +424,7 @@
 			children = (
 				C1A65094246F1013005A4A7F /* MockSearchCharactersViewController.swift */,
 				C1A65096246F106E005A4A7F /* MockSearchCharacterPresenter.swift */,
+				C19B34EE24701C9400CE4D24 /* MockSearchCharactersInteractor.swift */,
 			);
 			path = SearchCharacters;
 			sourceTree = "<group>";
@@ -473,6 +503,7 @@
 		C1AA8D9A2466B9C500E9B7FC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C19B359324702AE900CE4D24 /* Reachability */,
 				C1AEB669246C6E240006F1F3 /* OfflineSources */,
 				C1AA8D9D2466C41200E9B7FC /* Repositories */,
 				C1AA8D9B2466B9FB00E9B7FC /* Endpoints.swift */,
@@ -821,6 +852,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19B359524702AFB00CE4D24 /* Connectivity.swift in Sources */,
 				C1AA8D992466B64000E9B7FC /* RankingsInteractor.swift in Sources */,
 				C1AA8D872466B5F400E9B7FC /* SearchCharactersPresenter.swift in Sources */,
 				C1AA8D8A2466B5F400E9B7FC /* SearchCharactersModels.swift in Sources */,
@@ -876,10 +908,14 @@
 			files = (
 				C1A65093246F0837005A4A7F /* BattleArenaPresenterTests.swift in Sources */,
 				C1A65088246EF59D005A4A7F /* MockBattleArenaInteractor.swift in Sources */,
+				C19B34EF24701C9500CE4D24 /* MockSearchCharactersInteractor.swift in Sources */,
+				C19B3592247026C300CE4D24 /* UnitTestExtension.swift in Sources */,
 				C1A65097246F106E005A4A7F /* MockSearchCharacterPresenter.swift in Sources */,
+				C19B35972470305C00CE4D24 /* SearchCharactersPresenterTests.swift in Sources */,
 				C1A65081246EF592005A4A7F /* BQMarvelBattleTests.swift in Sources */,
 				C1A6508D246EF7D6005A4A7F /* MockBattleArenaPresenter.swift in Sources */,
 				C1A6508B246EF6D8005A4A7F /* BattleArenaInteractorTests.swift in Sources */,
+				C19B34F124701D2200CE4D24 /* SearchCharactersInteractorTests.swift in Sources */,
 				C19B345524700F0A00CE4D24 /* BattleArenaViewControllerTests.swift in Sources */,
 				C1A6508F246EF8C6005A4A7F /* MockBattleArenaViewController.swift in Sources */,
 				C1A65095246F1013005A4A7F /* MockSearchCharactersViewController.swift in Sources */,

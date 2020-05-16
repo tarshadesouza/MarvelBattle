@@ -52,7 +52,6 @@ extension SearchCharactersViewController: UISearchBarDelegate {
 extension SearchCharactersViewController: PopUpDelegate {
     
     func userDidTapGoOutButton() {
-        isEditingFighterList = true
     }
     
     func userDidTapGoToButton() {
