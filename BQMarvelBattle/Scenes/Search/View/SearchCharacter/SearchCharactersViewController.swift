@@ -116,6 +116,7 @@ class SearchCharactersViewController: UIViewController, SearchCharactersDisplayL
     private func setUpUI() {
         searchBar.delegate = self
         self.view.backgroundColor = .appPrimaryDark
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func resetNoBattleTableView() {
