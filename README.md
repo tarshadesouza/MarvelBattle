@@ -5,7 +5,9 @@ Hey there thanks for taking a look at my coding test! Heres a few things to know
 
 ## Dependencies
 Cocoapods-keys this project utilzes cocoas secure way of storing api keys: I will include here the api key (just for the sake of you being able to configure the project!)
+
 Public Api Key(MarvelApiKey): fc42f06a05054d9751b6ecba93f353e106b7285c 
+
 Private Api Key(MarvelPrivateKey): 41d357792b574304008264ad6fff6126
 
 #### A little info behind my choices of Libraries
