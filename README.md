@@ -21,7 +21,7 @@ Private Api Key(MarvelPrivateKey): 41d357792b574304008264ad6fff6126
 
 ## Flow & Architecture
 ### Design Pattern
-In all honestly I took a risk of making this project with clean architecture, I chose this mainly because I wanted to experiment more with the implications of clean. I prefer VIPER as I find it a little difficult in Clean keeping the View clear from alot of business logic, however I do believe that there are some rather large advantages working with Clean and testing was one of them. I also chose XIB´s instead of storyboards because I feel they are far more maintanable when your working as a team and even sometimes alone. 
+This project is made using clean architecture in particular I am using a clean-swift design templated, I chose this mainly because I wanted to experiment more with the implications of clean-swift. I prefer VIPER as I find it a little difficult in clean-swift keeping the View clear from alot of business logic, however I do believe that there are some rather large advantages working with clean-swift and testing was one of them. I also chose XIB´s instead of storyboards because I feel they are far more maintanable when your working as a team and even sometimes alone. 
 
 ### Flow
 As for the flow, I chose this flow to shy away from a tab bar application. I think as a developer if you can find a way to make an app the least confusing as possible in a navBar driven application well done! Also I have found that personally I tend to choose a tab bar application because of this reason.. its easier not to think about the flow in general. In this instance the search screen serves two functions.
